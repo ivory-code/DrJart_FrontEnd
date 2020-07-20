@@ -1,4 +1,4 @@
-# WeCode 인스타그램 클론코딩 프로젝트 (Front-End)
+# WeCode Dr.Jart+ 클론코딩 프로젝트 (Front-End)
 
 ## 프로젝트 소개🙌
 
