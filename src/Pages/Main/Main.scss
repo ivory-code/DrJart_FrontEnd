@@ -1,0 +1,27 @@
+.mainContainer {
+  overflow: hidden;
+  .mainSlider {
+    width: 100%;
+    margin: 0;
+    padding-left: 89px;
+    .slideImg {
+      overflow: hidden;
+      &:focus {
+        outline: none;
+      }
+      img {
+        max-width: 100%;
+        max-height: auto;
+        object-fit: contain;
+      }
+    }
+    .slick-dots {
+      margin-bottom: 70px;
+      li {
+        button::before {
+          color: white;
+        }
+      }
+    }
+  }
+}

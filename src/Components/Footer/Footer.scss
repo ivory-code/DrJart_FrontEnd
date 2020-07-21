@@ -1,0 +1,146 @@
+.footerContainer {
+  .footerMenuBar {
+    height: 59px;
+    padding: 0 60px 0 150px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .footerMenu {
+      width: 500px;
+      .menuText {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 600;
+        color: #999;
+        span {
+          cursor: pointer;
+          &:hover {
+            color: #555;
+          }
+        }
+        span:nth-child(3) {
+          font-weight: 900;
+          color: #222;
+        }
+      }
+    }
+    .footerSelMenu {
+      width: 420px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      li {
+        font-size: 12px;
+        font-weight: 600;
+        color: #999;
+        span {
+          cursor: pointer;
+        }
+        img {
+          width: 10px;
+          height: auto;
+          object-fit: contain;
+          cursor: pointer;
+        }
+      }
+      .siteMap {
+        width: 160px;
+        border-right: 1px solid #dcdcdc;
+        display: flex;
+        justify-content: space-around;
+        &:hover {
+          color: #555;
+        }
+      }
+      .familySite {
+        width: 150px;
+        border-right: 1px solid #dcdcdc;
+        display: flex;
+        justify-content: space-around;
+        &:hover {
+          color: #555;
+        }
+      }
+      .korean {
+        width: 110px;
+        display: flex;
+        justify-content: space-around;
+        &:hover {
+          color: #555;
+        }
+      }
+    }
+  }
+  .footerInfo {
+    height: 185px;
+    padding: 0 60px 0 150px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    .infoWrap {
+      height: 185px;
+      padding: 25px 0;
+      position: relative;
+      p {
+        span {
+          font-size: 12px;
+          font-weight: 600;
+          color: #555;
+          span {
+            background-color: #eee;
+            padding: 0 10px;
+            border: 1px solid #dcdcdc;
+            font-size: 10px;
+          }
+          .checkCom {
+            cursor: pointer;
+          }
+        }
+      }
+      .copyright {
+        font-size: 12px;
+        font-weight: 600;
+        color: #555;
+        position: absolute;
+        bottom: 25px;
+        left: 0;
+      }
+    }
+  }
+  .footerSticker {
+    height: 106px;
+    padding: 0 60px 0 150px;
+    background-color: #f9f9f9;
+    .stickerWrap {
+      padding: 30px 0 40px 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      li {
+        margin-right: 40px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img {
+          margin-right: 10px;
+          width: 36px;
+          height: auto;
+          object-fit: contain;
+        }
+        span {
+          font-size: 11px;
+          font-weight: 600;
+          color: #999;
+        }
+      }
+      .service {
+        span {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
