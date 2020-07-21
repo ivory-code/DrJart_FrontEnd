@@ -4,15 +4,17 @@ import "./Footer.scss";
 class Footer extends React.Component {
   render() {
     return (
-      <div className="footerContainer">
+      <div className="Footer">
         <div className="footerMenuBar">
-          <ul className="footerMenu">
-            <li className="menuText">
-              <span>회사소개</span>│<span>이용약관</span>│
-              <span>개인정보처리방침</span>│
-              <span>이메일주소 무단 수집거부</span>│<span>고객만족센터</span>
-            </li>
-          </ul>
+          <div className="footerMenu">
+            <ul className="menuText">
+              <li>회사소개</li>
+              <li>이용약관</li>
+              <li>개인정보처리방침</li>
+              <li>이메일주소 무단 수집거부</li>
+              <li>고객만족센터</li>
+            </ul>
+          </div>
           <ul className="footerSelMenu">
             <li className="siteMap">
               <span>Site map</span>

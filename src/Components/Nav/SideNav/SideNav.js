@@ -4,7 +4,7 @@ import "./SideNav.scss";
 class SideNav extends React.Component {
   render() {
     return (
-      <div className="sideNavAllWrap">
+      <div className="SideNav">
         <nav className="sideNavWrap">
           <div className="sideNavMenu">
             <ul className="sideGoHome">

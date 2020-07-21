@@ -5,7 +5,7 @@ import "./Nav.scss";
 class Nav extends React.Component {
   render() {
     return (
-      <div className="navContainer">
+      <div className="Nav">
         <SideNav />
         <header className="navHeader">
           <div className="navWrap">

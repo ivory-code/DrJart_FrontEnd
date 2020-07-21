@@ -1,4 +1,4 @@
-.footerContainer {
+.Footer {
   .footerMenuBar {
     height: 59px;
     padding: 0 60px 0 150px;
@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     .footerMenu {
-      width: 500px;
+      min-width: 600px;
       .menuText {
         display: flex;
         justify-content: space-between;
@@ -15,20 +15,26 @@
         font-size: 12px;
         font-weight: 600;
         color: #999;
-        span {
+        li {
+          padding: 0 20px;
+          border-right: 1px solid #dcdcdc;
+          text-align: center;
           cursor: pointer;
           &:hover {
             color: #555;
           }
         }
-        span:nth-child(3) {
+        li:nth-child(3) {
           font-weight: 900;
           color: #222;
+        }
+        li:nth-child(5) {
+          border-right: none;
         }
       }
     }
     .footerSelMenu {
-      width: 420px;
+      min-width: 420px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -48,7 +54,7 @@
         }
       }
       .siteMap {
-        width: 160px;
+        min-width: 160px;
         border-right: 1px solid #dcdcdc;
         display: flex;
         justify-content: space-around;
@@ -57,7 +63,7 @@
         }
       }
       .familySite {
-        width: 150px;
+        min-width: 150px;
         border-right: 1px solid #dcdcdc;
         display: flex;
         justify-content: space-around;
@@ -66,7 +72,7 @@
         }
       }
       .korean {
-        width: 110px;
+        min-width: 110px;
         display: flex;
         justify-content: space-around;
         &:hover {
@@ -81,6 +87,7 @@
     background-color: #f9f9f9;
     border-bottom: 1px solid #eee;
     .infoWrap {
+      min-width: 920px;
       height: 185px;
       padding: 25px 0;
       position: relative;
@@ -120,6 +127,7 @@
       justify-content: flex-start;
       align-items: center;
       li {
+        min-width: 150px;
         margin-right: 40px;
         display: flex;
         justify-content: flex-start;

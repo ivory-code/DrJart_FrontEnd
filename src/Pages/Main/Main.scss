@@ -1,4 +1,4 @@
-.mainContainer {
+.Main {
   overflow: hidden;
   .mainSlider {
     width: 100%;
@@ -6,8 +6,36 @@
     padding-left: 89px;
     .slideImg {
       overflow: hidden;
+      position: relative;
       &:focus {
         outline: none;
+      }
+      .slideTextWrap {
+        position: absolute;
+        top: 33%;
+        left: 100px;
+        width: 600px;
+        height: 50%;
+        z-index: 9999;
+        .titleText {
+          height: 108px;
+          font-size: 40px;
+          font-weight: 900;
+        }
+        .subText {
+          height: 48px;
+          margin-top: 16px;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .detailBtn {
+          width: 140px;
+          height: 40px;
+          margin-top: 36px;
+          background-color: transparent;
+          border: 1px solid #555;
+          cursor: pointer;
+        }
       }
       img {
         max-width: 100%;
@@ -16,7 +44,71 @@
       }
     }
     .slick-dots {
-      margin-bottom: 70px;
+      margin-bottom: 5%;
+      overflow: hidden;
+      li {
+        button::before {
+          color: white;
+        }
+      }
+    }
+  }
+  .subSlider {
+    width: 100%;
+    margin: 0;
+    padding-left: 89px;
+    .slideImg {
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      &:focus {
+        outline: none;
+      }
+      .slideTextWrap {
+        position: absolute;
+        top: 29%;
+        left: 100px;
+        width: 600px;
+        height: 178px;
+        z-index: 9999;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        .titleText {
+          height: 72px;
+          font-size: 30px;
+          font-weight: 900;
+        }
+        .subText {
+          height: 48px;
+          font-size: 14px;
+          font-weight: 600;
+          p {
+            margin-top: 26px;
+          }
+        }
+        .detailBtn {
+          width: 140px;
+          height: 40px;
+          margin-top: 26px;
+          padding: 10px 0;
+          background-color: transparent;
+          border: 1px solid white;
+          color: white;
+          cursor: pointer;
+        }
+      }
+      img {
+        max-width: 100%;
+        max-height: auto;
+        object-fit: contain;
+      }
+    }
+    .slick-dots {
+      margin-bottom: 5%;
+      overflow: hidden;
       li {
         button::before {
           color: white;
