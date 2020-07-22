@@ -7,7 +7,7 @@ function Routes() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/product" component={Product} />
+        <Route exact path="/product/all" component={Product} />
         <Route exact path="/cart" component={Cart} />
       </Switch>
     </Router>

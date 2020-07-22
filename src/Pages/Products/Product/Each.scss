@@ -33,17 +33,33 @@
       align-items: center;
       background: rgba(255, 255, 255, 0.8);
     }
-    .new {
+    .NEW {
       color: #000;
       border: 1px solid #000;
     }
-    .gift {
+    .NEWOff {
+      display: none;
+    }
+    .BEST {
+      color: #000;
+      border: 1px solid #000;
+    }
+    .BESTOff {
+      display: none;
+    }
+    .GIFT {
       color: #999;
       border: 1px solid #999;
     }
-    .sale {
+    .GIFTOff {
+      display: none;
+    }
+    .SALE {
       color: #ea4545;
       border: 1px solid #ea4545;
+    }
+    .SALEOff {
+      display: none;
     }
   }
   .productInfo {
@@ -53,6 +69,7 @@
     height: 130px;
     margin: 5px auto 0;
     align-items: center;
+    text-align: center;
     .productInfoMsg {
       color: #999;
       margin-bottom: 10px;
@@ -71,10 +88,10 @@
       color: #222;
       font-weight: 600;
       font-family: Arial, Helvetica, sans-serif;
-      &::after {
-        content: "원";
-        font-size: 0.95em;
-      }
+      // &::after {
+      //   content: "원";
+      //   font-size: 0.95em;
+      // }
     }
   }
   .hiddenBoxOn {

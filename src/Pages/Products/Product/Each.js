@@ -24,6 +24,17 @@ class Each extends React.Component {
 
   render() {
     const { isHovered } = this.state;
+    const {
+      key,
+      name,
+      imgSrc,
+      newTag,
+      giftTag,
+      bestTag,
+      saleTag,
+      tag,
+      price,
+    } = this.props;
     const { handleMoustEnter, handleMoustLeave } = this;
     return (
       <>
@@ -31,25 +42,31 @@ class Each extends React.Component {
           className="Each"
           onMouseEnter={handleMoustEnter}
           onMouseLeave={handleMoustLeave}
+          key={key}
         >
           <div className="eachProduct">
-            <Link to="/product/detail">
+            <Link to="/product/all/detail">
               <div className="imgBox">
-                <img
-                  alt="product"
-                  className="product"
-                  src="https://image.drjart.com/img/001/1589760654735.png"
-                />
+                <img alt="" className="product" src={imgSrc} />
               </div>
               <div className="productTag">
-                <span className="new">NEW</span>
-                <span className="gift">GIFT</span>
-                <span className="sale">SALE</span>
+                <span className={newTag === "NEW" ? "NEW" : "NEWOff"}>NEW</span>
+                <span className={bestTag === "BEST" ? "BEST" : "BESTOff"}>
+                  BEST
+                </span>
+                <span className={giftTag === "GIFT" ? "GIFT" : "GIFTOff"}>
+                  GIFT
+                </span>
+                <span className={saleTag === "SALE" ? "SALE" : "SALEOff"}>
+                  SALE
+                </span>
               </div>
               <div className="productInfo">
-                <p className="productInfoMsg">#시카페어크림</p>
-                <p className="productInfoTitle">2세대 시카페어 크림</p>
-                <p className="productInfoPrice">48,000</p>
+                <p className="productInfoMsg">{tag}</p>
+                <p className="productInfoTitle">{name}</p>
+                <p className="productInfoPrice">
+                  {price === 0 ? "일시품절" : `${price}원`}
+                </p>
               </div>
             </Link>
             <div className={isHovered ? "hiddenBoxOn" : "hiddenBoxOff"}>
@@ -59,12 +76,12 @@ class Each extends React.Component {
                 </Link>
                 <Link to="/cart">
                   <div className="icon cart">
-                    <img alt="cart" src="./images/btn_cart.png" />
+                    <img alt="cart" src="/images/btn_cart.png" />
                   </div>
                 </Link>
                 <Link to="/wish">
                   <div className="icon wish">
-                    <img alt="wish" src="./images/btn_wish.png" />
+                    <img alt="wish" src="/images/btn_wish.png" />
                   </div>
                 </Link>
               </div>
