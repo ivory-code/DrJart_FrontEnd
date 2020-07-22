@@ -1,0 +1,159 @@
+.Cart {
+  height: 270px;
+  padding: 0 60px;
+  .pageTitleArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 55px 0 57px 0;
+    h2 {
+      margin: 20px 0 10px;
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      line-height: 48px;
+    }
+  }
+  .cartContainer {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 980px;
+    min-height: 643px;
+    .cartList {
+      width: 660px;
+      height: 292px;
+      display: flex;
+      justify-content: center;
+      padding: 170px 0 100px;
+      align-items: center;
+      margin-right: 35px;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #eee;
+      background: url(https://image.drjart.com/front/ko/images/common/bg_noData.png)
+        no-repeat center 60px;
+      font-size: 16px;
+      color: #555;
+      text-align: center;
+    }
+    .continueShopping {
+      display: flex;
+      margin-top: 50px;
+      margin-right: 35px;
+      button {
+        height: 40px;
+        margin: 0 auto;
+        padding: 0 25px;
+        background: transparent;
+        border: 1px solid #999;
+        font-size: 14px;
+        font-weight: 500;
+        color: #555;
+        transition: background-color 0.2s ease-in-out;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          background-color: #999;
+          color: #fff;
+        }
+      }
+    }
+    .noti {
+      margin-right: 35px;
+      margin-top: 50px;
+      padding: 20px;
+      dt {
+        margin-bottom: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #222;
+      }
+      dd {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        line-height: 20px;
+        color: #555;
+      }
+    }
+    .countPrice {
+      width: 280px;
+      max-height: 299px;
+      border: 1px solid #dcdcdc;
+      border-top-color: #222;
+      .totalPrice {
+        border-bottom: 1px solid #eee;
+        padding: 5px 28px;
+        .price {
+          font-size: 13px;
+          font-weight: 600;
+          padding: 17px 0 16px;
+        }
+        .pdtPrice {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: #222;
+          .pdtPriceNum {
+            font-size: 15px;
+            font-weight: 800;
+            &::after {
+              content: "원";
+              font-weight: 600;
+              font-size: 0.95em;
+            }
+          }
+        }
+        .discount {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-top: 1px solid #eee;
+          padding-bottom: 28px;
+          .discountNum {
+            font-size: 15px;
+            color: red;
+            &::after {
+              content: "원";
+              font-weight: 500;
+              font-size: 0.95em;
+            }
+          }
+        }
+        .expectPrice {
+          display: flex;
+          height: 60px;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 14px;
+          .expectNum {
+            font-size: 19px;
+            font-weight: 800;
+            &::after {
+              content: "원";
+              font-weight: 600;
+              font-size: 0.95em;
+            }
+          }
+        }
+      }
+      .order {
+        padding: 20px 28px 30px;
+        background-color: #f9f9f9;
+        button {
+          min-width: 222px;
+          height: 48px;
+          background-color: #dcdcdc;
+          font-size: 16px;
+          color: #fff;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
