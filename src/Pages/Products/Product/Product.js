@@ -18,7 +18,7 @@ class Product extends React.Component {
   }
 
   getProductDatas = () => {
-    fetch("http://10.58.6.110:8000/product/main", {
+    fetch("http://14.138.117.141:8000/product/all", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -103,6 +103,7 @@ class Product extends React.Component {
                   giftTag={data.fleg_gift}
                   saleTag={data.fleg_sale}
                   tag={data.tag}
+                  salePrice={data.price_sale}
                   price={data.price}
                 />
               );

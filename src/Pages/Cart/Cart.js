@@ -7,7 +7,7 @@ class Cart extends React.Component {
       <div className="Cart">
         <div className="pageTitleArea">
           <img
-            alt=""
+            alt="cart"
             src="https://image.drjart.com/front/ko/images/order/ico_cart.gif"
           />
           <h2>장바구니</h2>

@@ -1,13 +1,11 @@
 .Cart {
   height: 270px;
   padding: 0 60px;
+
   .pageTitleArea {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     padding: 55px 0 57px 0;
+    text-align: center;
+
     h2 {
       margin: 20px 0 10px;
       font-size: 48px;
@@ -16,19 +14,21 @@
       line-height: 48px;
     }
   }
+
   .cartContainer {
     display: flex;
-    margin: 0 auto;
     justify-content: space-between;
+    margin: 0 auto;
     max-width: 980px;
     min-height: 643px;
+
     .cartList {
-      width: 660px;
-      height: 292px;
       display: flex;
       justify-content: center;
-      padding: 170px 0 100px;
       align-items: center;
+      width: 660px;
+      height: 292px;
+      padding: 170px 0 100px;
       margin-right: 35px;
       border-top: 1px solid #222;
       border-bottom: 1px solid #eee;
@@ -38,10 +38,12 @@
       color: #555;
       text-align: center;
     }
+
     .continueShopping {
       display: flex;
       margin-top: 50px;
       margin-right: 35px;
+
       button {
         height: 40px;
         margin: 0 auto;
@@ -62,6 +64,7 @@
         }
       }
     }
+
     .noti {
       margin-right: 35px;
       margin-top: 50px;
@@ -79,24 +82,29 @@
         color: #555;
       }
     }
+
     .countPrice {
       width: 280px;
       max-height: 299px;
       border: 1px solid #dcdcdc;
       border-top-color: #222;
+
       .totalPrice {
-        border-bottom: 1px solid #eee;
         padding: 5px 28px;
+        border-bottom: 1px solid #eee;
+
         .price {
           font-size: 13px;
           font-weight: 600;
           padding: 17px 0 16px;
         }
+
         .pdtPrice {
           display: flex;
           justify-content: space-between;
           align-items: center;
           color: #222;
+
           .pdtPriceNum {
             font-size: 15px;
             font-weight: 800;
@@ -107,12 +115,14 @@
             }
           }
         }
+
         .discount {
           display: flex;
           justify-content: space-between;
           align-items: center;
           border-top: 1px solid #eee;
           padding-bottom: 28px;
+
           .discountNum {
             font-size: 15px;
             color: red;
@@ -123,12 +133,14 @@
             }
           }
         }
+
         .expectPrice {
           display: flex;
-          height: 60px;
           justify-content: space-between;
           align-items: center;
+          height: 60px;
           font-size: 14px;
+
           .expectNum {
             font-size: 19px;
             font-weight: 800;
@@ -140,9 +152,11 @@
           }
         }
       }
+
       .order {
         padding: 20px 28px 30px;
         background-color: #f9f9f9;
+
         button {
           min-width: 222px;
           height: 48px;
