@@ -23,12 +23,14 @@ class Each extends React.Component {
   };
 
   render() {
+    const { isHovered } = this.state;
+    const { handleMoustEnter, handleMoustLeave } = this;
     return (
       <>
         <div
           className="Each"
-          onMouseEnter={this.handleMoustEnter}
-          onMouseLeave={this.handleMoustLeave}
+          onMouseEnter={handleMoustEnter}
+          onMouseLeave={handleMoustLeave}
         >
           <div className="eachProduct">
             <Link to="/product/detail">
@@ -50,9 +52,7 @@ class Each extends React.Component {
                 <p className="productInfoPrice">48,000</p>
               </div>
             </Link>
-            <div
-              className={this.state.isHovered ? "hiddenBoxOn" : "hiddenBoxOff"}
-            >
+            <div className={isHovered ? "hiddenBoxOn" : "hiddenBoxOff"}>
               <div className="box">
                 <Link to="/buy">
                   <div className="buy">바로구매</div>
