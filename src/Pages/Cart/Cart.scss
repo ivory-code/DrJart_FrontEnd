@@ -55,9 +55,11 @@
         color: #555;
         transition: background-color 0.2s ease-in-out;
         cursor: pointer;
+
         &:focus {
           outline: none;
         }
+
         &:hover {
           background-color: #999;
           color: #fff;
@@ -69,12 +71,14 @@
       margin-right: 35px;
       margin-top: 50px;
       padding: 20px;
+
       dt {
         margin-bottom: 16px;
         font-size: 14px;
         font-weight: 600;
         color: #222;
       }
+
       dd {
         font-size: 12px;
         letter-spacing: 0.5px;
@@ -108,10 +112,11 @@
           .pdtPriceNum {
             font-size: 15px;
             font-weight: 800;
+
             &::after {
               content: "원";
               font-weight: 600;
-              font-size: 0.95em;
+              font-size: 14px;
             }
           }
         }
@@ -126,10 +131,11 @@
           .discountNum {
             font-size: 15px;
             color: red;
+
             &::after {
               content: "원";
               font-weight: 500;
-              font-size: 0.95em;
+              font-size: 14px;
             }
           }
         }
@@ -144,10 +150,11 @@
           .expectNum {
             font-size: 19px;
             font-weight: 800;
+
             &::after {
               content: "원";
               font-weight: 600;
-              font-size: 0.95em;
+              font-size: 17px;
             }
           }
         }
@@ -163,6 +170,7 @@
           background-color: #dcdcdc;
           font-size: 16px;
           color: #fff;
+
           &:focus {
             outline: none;
           }

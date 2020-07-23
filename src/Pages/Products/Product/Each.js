@@ -62,21 +62,15 @@ class Each extends React.Component {
               />
             </div>
             <div className="productTag">
-              <span className={newFlag === "NEW" ? "NEW" : "NEWOff"}>NEW</span>
-              <span className={bestFlag === "BEST" ? "BEST" : "BESTOff"}>
-                BEST
-              </span>
-              <span className={giftFlag === "GIFT" ? "GIFT" : "GIFTOff"}>
-                GIFT
-              </span>
-              <span className={saleFlag === "SALE" ? "SALE" : "SALEOff"}>
-                SALE
-              </span>
+              <span className={newFlag ? "NEW" : "NEWOff"}>{newFlag}</span>
+              <span className={bestFlag ? "BEST" : "BESTOff"}>{bestFlag}</span>
+              <span className={giftFlag ? "GIFT" : "GIFTOff"}>{giftFlag}</span>
+              <span className={saleFlag ? "SALE" : "SALEOff"}>{saleFlag}</span>
             </div>
             <div className="productInfo">
-              <p className="productInfoMsg">{tag}</p>
-              <p className="productInfoTitle">{name}</p>
-              <div className="productPrice">
+              <p className="msg">{tag}</p>
+              <p className="title">{name}</p>
+              <div className="price">
                 <p
                   className={
                     isSale ? "productSalePriceOn" : "productSalePriceOff"
@@ -93,13 +87,13 @@ class Each extends React.Component {
                       `${price.toLocaleString()}원`
                     )
                   ) : (
-                    <p className="productOutofStock">일시품절</p>
+                    <span className="productOutofStock">일시품절</span>
                   )}
                 </p>
               </div>
             </div>
           </Link>
-          <div className={isHovered ? "hiddenBoxOn" : "hiddenBoxOff"}>
+          <div className={`hiddenBox ${isHovered ? "On" : "Off"}`}>
             <div className="box">
               <Link to="/buy">
                 <div className="buy">바로구매</div>
