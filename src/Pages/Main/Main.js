@@ -1,6 +1,9 @@
 import React from "react";
 import Nav from "../../Components/Nav/Nav";
+import BestProduct from "./BestProduct/BestProduct";
 import MainStory from "./MainStory/MainStory";
+import OnlineProduct from "./OnlineProduct/OnlineProduct";
+import Review from "./Review/Review";
 import Footer from "../../Components/Footer/Footer";
 import Slider from "react-slick";
 import "./Main.scss";
@@ -8,6 +11,29 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      maindata: [],
+    };
+  }
+
+  componentDidMount() {
+    this.getMainProduct();
+  }
+
+  getMainProduct = () => {
+    fetch("http://10.58.6.110:8000/product/main", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({
+          maindata: result.data,
+        });
+      });
+  };
+
   render() {
     const settings = {
       autoplay: true,
@@ -19,6 +45,7 @@ class Main extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
     };
+    const { maindata } = this.state;
     return (
       <div className="Main">
         <Nav />
@@ -94,6 +121,12 @@ class Main extends React.Component {
             </div>
           </Slider>
         </div>
+        <div className="bestProContainer">
+          <div className="bestProTitleWrap">
+            <p>베스트셀러 TOP5</p>
+          </div>
+          <BestProduct mainData={maindata} />
+        </div>
         <div className="subSlider">
           <Slider {...settings}>
             <div className="slideImg">
@@ -134,7 +167,20 @@ class Main extends React.Component {
               </ul>
             </div>
           </Slider>
-          <MainStory />
+        </div>
+        <div className="onlineContainer">
+          <div className="onlineTitleWrap">
+            <p>온라인 혜택제품</p>
+          </div>
+          <OnlineProduct mainData={maindata} />
+        </div>
+        <MainStory mainData={maindata} />
+        <div className="reviewContainer">
+          <div className="reviewTitleWrap">
+            <p>베스트 포토리뷰</p>
+            <p>고객님들께서 제품 사용 후 남겨주신 베스트 리뷰를 확인하세요.</p>
+          </div>
+          <Review />
         </div>
         <Footer />
       </div>
