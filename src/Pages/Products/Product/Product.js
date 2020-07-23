@@ -7,7 +7,6 @@ class Product extends React.Component {
     super();
     this.state = {
       isClicked: false,
-      isLoading: true,
       checked: "인기 순",
       datas: [],
     };
@@ -18,14 +17,13 @@ class Product extends React.Component {
   }
 
   getProductDatas = () => {
-    fetch("http://14.138.117.141:8000/product/all", {
+    fetch("http://10.58.6.110:8000/product/all", {
       method: "GET",
     })
       .then((res) => res.json())
       .then((result) => {
         this.setState({
           datas: result.data,
-          isLoading: false,
         });
       });
   };
@@ -45,18 +43,15 @@ class Product extends React.Component {
 
   handleRadioBtn = (e) => {
     this.setState({
-      checked: e.target.innerText,
+      checked: e.target.value,
     });
   };
 
   render() {
-    const { isClicked, isLoading, datas } = this.state;
+    const { isClicked, datas, checked } = this.state;
     const { handleClickList, handleMoustLeave } = this;
     return (
       <>
-        <div className={isLoading ? "loaderOn" : "loaderOff"}>
-          <div className="loaderImg"></div>
-        </div>
         <div className="Product">
           <header className="productHeader">
             <h2>모든제품</h2>
@@ -66,27 +61,27 @@ class Product extends React.Component {
                 onClick={handleClickList}
                 onMouseLeave={handleMoustLeave}
               >
-                {this.state.checked}
-                <ul
-                  onClick={handleClickList}
-                  className={isClicked ? "filterListOn" : "filterListOff"}
-                >
-                  <li>
-                    <input type="radio" name="prd_order" value="인기 순" />
-                    <label onClick={this.handleRadioBtn}>인기 순</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="prd_order" value="신상품 순" />
-                    <label onClick={this.handleRadioBtn}>신상품 순</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="prd_order" value="낮은 금액 순" />
-                    <label onClick={this.handleRadioBtn}>낮은 금액 순</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="prd_order" value="높은 금액 순" />
-                    <label onClick={this.handleRadioBtn}>높은 금액 순</label>
-                  </li>
+                {checked}
+                <ul className={isClicked ? "filterListOn" : "filterListOff"}>
+                  {["인기 순", "신상품 순", "낮은 금액 순", "높은 금액 순"].map(
+                    (el, i) => {
+                      return (
+                        <li key={i}>
+                          <input type="radio" name="prd_order" />
+                          <label
+                            onClick={(e) =>
+                              this.setState({
+                                isClicked: false,
+                                checked: e.target.innerText,
+                              })
+                            }
+                          >
+                            {el}
+                          </label>
+                        </li>
+                      );
+                    }
+                  )}
                 </ul>
               </button>
             </div>
@@ -98,10 +93,10 @@ class Product extends React.Component {
                   key={data.name}
                   name={data.name}
                   imgSrc={data.image_url}
-                  newTag={data.fleg_new}
-                  bestTag={data.fleg_best}
-                  giftTag={data.fleg_gift}
-                  saleTag={data.fleg_sale}
+                  newFlag={data.fleg_new}
+                  bestFlag={data.fleg_best}
+                  giftFlag={data.fleg_gift}
+                  saleFlag={data.fleg_sale}
                   tag={data.tag}
                   salePrice={data.price_sale}
                   price={data.price}

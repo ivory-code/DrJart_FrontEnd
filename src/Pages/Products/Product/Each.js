@@ -2,25 +2,31 @@ import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import "./Each.scss";
 
+const options = { threshold: 0.5 };
+
 class Each extends React.Component {
   constructor() {
     super();
+    this.imgRef = React.createRef();
     this.state = {
       isHovered: false,
     };
   }
 
-  // handleMoustEnter = () => {
-  //   this.setState({
-  //     isHovered: true,
-  //   });
-  // };
+  componentDidMount() {
+    const observer = new IntersectionObserver(this.callback, options);
+    observer.observe(this.imgRef.current);
+  }
 
-  // handleMoustLeave = () => {
-  //   this.setState({
-  //     isHovered: false,
-  //   });
-  // };
+  callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        observer.unobserve(entry.target);
+        entry.target.src = entry.target.dataset.src;
+      } else {
+      }
+    });
+  };
 
   render() {
     const { isHovered } = this.state;
@@ -28,10 +34,10 @@ class Each extends React.Component {
       key,
       name,
       imgSrc,
-      newTag,
-      giftTag,
-      bestTag,
-      saleTag,
+      newFlag,
+      giftFlag,
+      bestFlag,
+      saleFlag,
       tag,
       salePrice,
       price,
@@ -47,17 +53,23 @@ class Each extends React.Component {
         <div className="eachProduct">
           <Link to="/product/all/detail">
             <div className="imgBox">
-              <img alt="" className="product" src={imgSrc} />
+              <img
+                alt=""
+                className="product"
+                ref={this.imgRef}
+                src="/images/preview.gif"
+                data-src={imgSrc}
+              />
             </div>
             <div className="productTag">
-              <span className={newTag === "NEW" ? "NEW" : "NEWOff"}>NEW</span>
-              <span className={bestTag === "BEST" ? "BEST" : "BESTOff"}>
+              <span className={newFlag === "NEW" ? "NEW" : "NEWOff"}>NEW</span>
+              <span className={bestFlag === "BEST" ? "BEST" : "BESTOff"}>
                 BEST
               </span>
-              <span className={giftTag === "GIFT" ? "GIFT" : "GIFTOff"}>
+              <span className={giftFlag === "GIFT" ? "GIFT" : "GIFTOff"}>
                 GIFT
               </span>
-              <span className={saleTag === "SALE" ? "SALE" : "SALEOff"}>
+              <span className={saleFlag === "SALE" ? "SALE" : "SALEOff"}>
                 SALE
               </span>
             </div>
@@ -74,11 +86,15 @@ class Each extends React.Component {
                   원
                 </p>
                 <p className="productInfoPrice">
-                  {price
-                    ? isSale
-                      ? `${salePrice.toLocaleString()}원`
-                      : `${price.toLocaleString()}원`
-                    : "일시 품절"}
+                  {price ? (
+                    isSale ? (
+                      `${salePrice.toLocaleString()}원`
+                    ) : (
+                      `${price.toLocaleString()}원`
+                    )
+                  ) : (
+                    <p className="productOutofStock">일시품절</p>
+                  )}
                 </p>
               </div>
             </div>
