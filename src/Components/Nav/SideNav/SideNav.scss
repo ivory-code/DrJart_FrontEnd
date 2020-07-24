@@ -1,4 +1,5 @@
 .SideNav {
+  transition: transform 0.5s;
   .sideNavWrap {
     display: flex;
     justify-content: center;
@@ -6,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 89px;
+    width: 110px;
     height: 100%;
     border-right: 1px solid #dcdcdc;
     background-color: white;
@@ -109,8 +110,9 @@
     background-color: white;
     position: fixed;
     top: 0;
-    left: 89px;
+    left: 0;
     z-index: 9999;
+    transform: translate(89px, 0);
 
     .hideNavWrap {
       width: 270px;
