@@ -1,0 +1,135 @@
+.MainStory {
+  padding: 0 50px;
+  display: flex;
+  justify-content: flex-start;
+
+  .mainStory {
+    width: 73%;
+    padding-left: 90px;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 100;
+
+    .storyInfo {
+      width: 42%;
+      height: 100%;
+      min-width: 253px;
+      min-height: 620px;
+      padding: 0 65px 0 50px;
+      border: 1px solid #dcdcdc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+
+      p {
+        font-weight: 900;
+        color: #222;
+      }
+
+      .subTitle {
+        height: 40px;
+        margin-top: 10%;
+        font-size: 15px;
+      }
+
+      .mainTitle {
+        margin-top: 20%;
+        font-size: 30px;
+      }
+
+      .caption {
+        margin-top: 30%;
+        font-size: 13px;
+        line-height: 24px;
+        color: #555;
+      }
+
+      .goStoryBtn {
+        background-color: transparent;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #555;
+        outline: none;
+        margin-bottom: 30%;
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .storyVideo {
+      width: 78%;
+      min-width: 537px;
+      height: auto;
+      background-image: url(/images/storyItem.png);
+      background-position: center;
+      overflow: hidden;
+
+      .storyItem {
+        max-width: auto;
+        max-height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .storySlide {
+    width: 500px;
+    height: 620px;
+    border: 1px solid #dcdcdc;
+
+    .storyProContent {
+      width: 258px;
+      height: 300px;
+      padding: 180px 130px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:focus {
+        outline: none;
+      }
+
+      img {
+        max-width: 300px;
+        max-height: auto;
+        padding-right: 60px;
+        object-fit: contain;
+      }
+
+      .storyProInfo {
+        width: 240px;
+        height: 60px;
+        padding: 12px 2px 15px;
+        border-bottom: 1px solid #f3f3f3;
+        text-align: center;
+
+        .storyProTitle {
+          font-size: 12px;
+          font-weight: 600;
+          color: #000;
+        }
+
+        .storyProDate {
+          font-size: 11px;
+          font-weight: 600;
+          color: #ccc;
+        }
+      }
+
+      .storyProItem {
+        width: 258px;
+        height: 66px;
+        padding: 13px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .itemName {
+          font-size: 12px;
+          font-weight: 600;
+          color: #000;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
