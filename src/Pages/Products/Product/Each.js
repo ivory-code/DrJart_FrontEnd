@@ -5,8 +5,8 @@ import "./Each.scss";
 const options = { threshold: 0.5 };
 
 class Each extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.imgRef = React.createRef();
     this.state = {
       isHovered: false,
@@ -16,6 +16,7 @@ class Each extends React.Component {
   componentDidMount() {
     const observer = new IntersectionObserver(this.callback, options);
     observer.observe(this.imgRef.current);
+    console.log("hey", this.props.data);
   }
 
   callback = (entries, observer) => {
@@ -31,41 +32,47 @@ class Each extends React.Component {
   render() {
     const { isHovered } = this.state;
     const {
-      key,
       name,
-      imgSrc,
-      newFlag,
-      giftFlag,
-      bestFlag,
-      saleFlag,
+      image_url,
+      fleg_new,
+      fleg_gift,
+      fleg_best,
+      fleg_sale,
       tag,
-      salePrice,
+      price_sale,
       price,
-    } = this.props;
-    const isSale = salePrice !== 0;
+      productId,
+    } = this.props.data;
+    const isSale = price_sale !== 0;
     return (
       <div
         className="Each"
         onMouseEnter={() => this.setState({ isHovered: true })}
         onMouseLeave={() => this.setState({ isHovered: false })}
-        key={key}
+        key={productId}
       >
         <div className="eachProduct">
-          <Link to="/product/all/detail">
+          <Link to={`/product/all/detail/${productId}`}>
             <div className="imgBox">
               <img
                 alt=""
                 className="product"
                 ref={this.imgRef}
                 src="/images/preview.gif"
-                data-src={imgSrc}
+                data-src={image_url}
               />
             </div>
             <div className="productTag">
-              <span className={newFlag ? "NEW" : "NEWOff"}>{newFlag}</span>
-              <span className={bestFlag ? "BEST" : "BESTOff"}>{bestFlag}</span>
-              <span className={giftFlag ? "GIFT" : "GIFTOff"}>{giftFlag}</span>
-              <span className={saleFlag ? "SALE" : "SALEOff"}>{saleFlag}</span>
+              <span className={fleg_new ? "NEW" : "NEWOff"}>{fleg_new}</span>
+              <span className={fleg_best ? "BEST" : "BESTOff"}>
+                {fleg_best}
+              </span>
+              <span className={fleg_gift ? "GIFT" : "GIFTOff"}>
+                {fleg_gift}
+              </span>
+              <span className={fleg_sale ? "SALE" : "SALEOff"}>
+                {fleg_sale}
+              </span>
             </div>
             <div className="productInfo">
               <p className="msg">{tag}</p>
@@ -76,13 +83,15 @@ class Each extends React.Component {
                     isSale ? "productSalePriceOn" : "productSalePriceOff"
                   }
                 >
-                  {isSale ? price.toLocaleString() : salePrice.toLocaleString()}
+                  {isSale
+                    ? price.toLocaleString()
+                    : price_sale.toLocaleString()}
                   원
                 </p>
                 <p className="productInfoPrice">
                   {price ? (
                     isSale ? (
-                      `${salePrice.toLocaleString()}원`
+                      `${price_sale.toLocaleString()}원`
                     ) : (
                       `${price.toLocaleString()}원`
                     )

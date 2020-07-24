@@ -2,6 +2,7 @@ import React from "react";
 import Each from "./Each.js";
 import API_URL from "../../../Config.js";
 import "./Product.scss";
+import { withRouter } from "react-router-dom";
 
 class Product extends React.Component {
   constructor() {
@@ -28,6 +29,30 @@ class Product extends React.Component {
           productDatas: result.data,
         });
       });
+  };
+
+  sortDatas = (e) => {
+    e.stopPropagation();
+    const { productDatas } = this.state;
+    const priceObj = {
+      "낮은 금액 순": "price",
+      "높은 금액 순": "price",
+      // "인기 순": "comments", API 데이터 들어오면 추가 예정
+      // "신상품 순": "date", API 데이터 들어오면 추가 예정
+    };
+
+    let newData = productDatas.sort((a, b) => {
+      if (e.target.value === "낮은 금액 순") {
+        return a[priceObj[e.target.value]] - b[priceObj[e.target.value]];
+      }
+      return b[priceObj[e.target.value]] - a[priceObj[e.target.value]];
+    });
+
+    this.setState({
+      isClicked: false,
+      curCategoryValue: e.target.value,
+      productDatas: newData,
+    });
   };
 
   render() {
@@ -62,13 +87,7 @@ class Product extends React.Component {
                         <input
                           type="radio"
                           value={el}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            this.setState({
-                              isClicked: false,
-                              curCategoryValue: e.target.value,
-                            });
-                          }}
+                          onClick={(e) => this.sortDatas(e)}
                         />
                         {el}
                       </label>
@@ -81,20 +100,7 @@ class Product extends React.Component {
         </header>
         <div className="productWrapper">
           {productDatas.map((data) => {
-            return (
-              <Each
-                key={data.name}
-                name={data.name}
-                imgSrc={data.image_url}
-                newFlag={data.fleg_new}
-                bestFlag={data.fleg_best}
-                giftFlag={data.fleg_gift}
-                saleFlag={data.fleg_sale}
-                tag={data.tag}
-                salePrice={data.price_sale}
-                price={data.price}
-              />
-            );
+            return <Each key={data.id} data={data} />;
           })}
         </div>
       </div>
@@ -102,4 +108,4 @@ class Product extends React.Component {
   }
 }
 
-export default Product;
+export default withRouter(Product);
