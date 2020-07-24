@@ -32,9 +32,11 @@ class Nav extends React.Component {
         <SideNav />
         <header className="navHeader">
           <div className="navWrap">
-            <h1 className="navMainCate">제품</h1>
+            <Link to="/main">
+              <h1 className="navMainCate">제품</h1>
+            </Link>
             <ul className="navSubCate">
-              <Link to="/product">
+              <Link to="/product/all">
                 <li>모든제품</li>
               </Link>
               <li
