@@ -6,7 +6,6 @@ class SideNav extends React.Component {
     super();
     this.state = {
       navOn: false,
-      shadowOn: true,
     };
   }
 

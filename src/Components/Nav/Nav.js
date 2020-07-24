@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
-import SideNav from "./SideNav/SideNav";
+import SideNav from "./SideNav/SideNav.js";
 import "./Nav.scss";
 
 class Nav extends React.Component {

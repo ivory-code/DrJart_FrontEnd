@@ -1,11 +1,12 @@
 import React from "react";
-import Nav from "../../Components/Nav/Nav";
-import BestProduct from "./BestProduct/BestProduct";
-import MainStory from "./MainStory/MainStory";
-import OnlineProduct from "./OnlineProduct/OnlineProduct";
-import Review from "./Review/Review";
-import Footer from "../../Components/Footer/Footer";
+import Nav from "../../Components/Nav/Nav.js";
+import BestProduct from "./BestProduct/BestProduct.js";
+import MainStory from "./MainStory/MainStory.js";
+import OnlineProduct from "./OnlineProduct/OnlineProduct.js";
+import Review from "./Review/Review.js";
+import Footer from "../../Components/Footer/Footer.js";
 import Slider from "react-slick";
+import API_URL from "../../Config.js";
 import "./Main.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -23,7 +24,7 @@ class Main extends React.Component {
   }
 
   getMainProduct = () => {
-    fetch("http://10.58.6.110:8000/product/main", {
+    fetch(`http://${API_URL}/product/main`, {
       method: "GET",
     })
       .then((res) => res.json())
