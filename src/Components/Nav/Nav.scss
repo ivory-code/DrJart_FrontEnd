@@ -10,14 +10,13 @@
     background-color: white;
     margin: 0;
     padding: 0 60px 0px 200px;
+    border-bottom: 1px solid #eee;
     display: flex;
     align-items: flex-end;
 
     .navWrap {
       width: 1710px;
-      // margin: 0 auto;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 30px;
+      padding-bottom: 20px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -26,6 +25,7 @@
         height: 40px;
         margin-right: 45px;
         font-size: 32px;
+        font-weight: 600;
         cursor: pointer;
       }
 
@@ -92,7 +92,6 @@
         }
 
         .navSingle {
-          position: relative;
           .selectSol {
             width: 120px;
             height: 82px;
@@ -102,13 +101,11 @@
             line-height: 40px;
             background-color: white;
             position: absolute;
-            top: 51px;
+            top: 139px;
           }
         }
 
         .navSol {
-          position: relative;
-
           .selectSol {
             width: 120px;
             height: 482px;
@@ -118,13 +115,11 @@
             line-height: 40px;
             background-color: white;
             position: absolute;
-            top: 51px;
+            top: 139px;
           }
         }
 
         .navType {
-          position: relative;
-
           .selectType {
             width: 120px;
             height: 482px;
@@ -133,7 +128,7 @@
             line-height: 40px;
             background-color: white;
             position: absolute;
-            top: 51px;
+            top: 139px;
           }
         }
 

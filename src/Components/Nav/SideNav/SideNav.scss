@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 110px;
+    width: 90px;
     height: 100%;
     border-right: 1px solid #dcdcdc;
     background-color: white;
@@ -141,8 +141,8 @@
         padding-top: 33px;
 
         li {
-          font-size: 20px;
-          font-weight: 900;
+          font-size: 22px;
+          font-weight: 600;
           color: #999;
           margin-bottom: 16px;
           cursor: pointer;
@@ -209,6 +209,7 @@
             }
 
             li:nth-child(1) {
+              padding-left: 0;
               color: #222;
             }
 
@@ -260,6 +261,7 @@
       display: flex;
       flex-direction: column-reverse;
       justify-content: space-between;
+      cursor: pointer;
 
       div {
         position: fixed;
