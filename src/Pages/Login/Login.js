@@ -12,9 +12,12 @@ class Login extends React.Component {
             isHoveredUpper2: false
         }
 
+
         this.state = {
-            userid: "",
+            id: "",
             password: "",
+            userid: "",
+            userpassword: ""
         };
     }
 
@@ -22,65 +25,78 @@ class Login extends React.Component {
 
     }
 
-    /*handleClick = (e) => {
+    handleClick = (e) => {
+        e.preventDefault();
         fetch("http://10.58.1.71:8000/signin",
             {
                 method: "POST", body: JSON.stringify(
-                    { email: this.state.email, password: this.state.password, }),
+                    { userid: this.state.id, password: this.state.password }),
             })
-            .then((res) => res.json()).then((res) => {
-                if (res.token) {
-                    localStorage.setItem("token", res.token);
+            .then((res) => res.json())
+            .then((res) => {
+                localStorage.setItem("Authorization", res.token);
+                if (localStorage.getItem("Authorization")) {
                     alert("로그인 성공하셨습니다."); this.props.history.push("/");
                 } else {
                     alert("올바른 사용자가 아닙니다. 회원가입 먼저 해주세요.");
-                    this.props.history.push("signUp");
+                    this.props.history.push("signin");
                 }
             });
-    };*/
+    };
 
-    handleLogin = () => {
-        if (this.state.Id === this.state.memberId && this.Pw === this.memberPw) {
+    handleLogin = (e) => {
+        e.preventDefault();
+        if (this.state.id === this.state.userid && this.password === this.userpassword) {
             this.props.history.push("/main");
             alert("닥터자르트에 오신 것을 환영합니다.");
-        } else if (this.state.email !== this.state.memberId && this.state.pw !== this.state.memberPw) {
+        } else if (this.state.id !== this.state.userid && this.state.password !== this.state.userpassword) {
             this.setState({ click: true });
             alert("다시 입력해주세요.");
         }
     }
 
     handleChangeId = (e) => {
+        e.preventDefault();
         this.setState({
-            email: e.target.value,
+            id: e.target.value,
         });
     };
 
     handleChangePw = (e) => {
+        e.preventDefault();
         this.setState({
             password: e.target.value,
         });
     };
 
     handleKeyPress = (e) => {
-        if (e.key === "Enter") {
+        /*if (e.key === "Enter") {
             this.handlepassMain();
+        }*/
+        if (this.state.id === this.state.userid && this.password === this.userpassword) {
+            this.props.history.push("/main");
+            alert("닥터자르트에 오신 것을 환영합니다.");
+        } else if (this.state.id !== this.state.userid && this.state.password !== this.state.userpassword) {
+            this.setState({ click: true });
+            alert("다시 입력해주세요.");
         }
     }
 
     passMain = (e) => {
+        e.preventDefault();
         fetch("http://10.58.1.71:8000/signin",
             {
                 method: "POST",
                 body: JSON.stringify(
-                    { email: this.state.email, password: this.state.password, }),
+                    { userid: this.state.id, password: this.state.password, }),
             })
             .then((res) => res.json()).then((res) => {
+                localStorage.setItem("Authorization", res.token);
                 if (res.token) {
-                    localStorage.setItem("token", res.token);
                     alert("로그인 성공하셨습니다."); this.props.history.push("/");
                 } else {
                     alert("올바른 사용자가 아닙니다. 회원가입 먼저 해주세요.");
-                    this.props.history.push("signUp");
+                    this.props.history.push("signin");
                 }
             });
 
@@ -115,10 +131,10 @@ class Login extends React.Component {
                 <div className="loginCont loginBox On">
                     <div className="inpWrap">
                         <div className="inpText">
-                            <input type="text" className="inpText" name="txtLoginId" id="txtLoginId" placeholder="아이디" maxlength="20" />
+                            <input onChange={this.handleChangeId} type="text" className="inpText" name="txtLoginId" id="txtLoginId" placeholder="아이디" maxLength="21" />
                             <div className="inpText">
-                                <input type="password" className="inpText" name="txtLoginPw" id="txtLoginPw" placeholder="비밀번호"
-                                    maxlength="20" />
+                                <input onChange={this.handleChangePw} type="password" className="inpText" name="txtLoginPw" id="txtLoginPw" placeholder="비밀번호"
+                                    maxLength="21" />
                             </div>
                         </div>
                         <ul className="loginInfoFind">
@@ -134,7 +150,7 @@ class Login extends React.Component {
                             <div className="btn-upper" onMouseEnter={() => this.setState({ isHoveredUpper: true })} onMouseLeave={() => this.setState({ isHoveredUpper: false })}>
                                 <div className="black-bg" />
                                 <div className={`white-bg ${this.state.isHoveredUpper ? "hover" : ""}`} />
-                                <button className={`loginBtn ${this.state.isHoveredUpper ? "hover" : ""}`} onClick={this.passMain}>로그인</button>
+                                <button className={`loginBtn ${this.state.isHoveredUpper ? "hover" : ""}`} onClick={this.handleClick}>로그인</button>
                             </div>
                         </div>
                         <div className="btnWrap2">
@@ -150,17 +166,17 @@ class Login extends React.Component {
                             <ul className="snsSign">
 
                                 <li className="snsKatalk">
-                                    <a>
+                                    <a href="https://accounts.kakao.com/login?continue=https%3A%2F%2Faccounts.kakao.com%2Fweblogin%2Faccount%2Finfo"> 카카오톡 로그인
                                         <img src="./images/kaka.png" />
                                     </a>
                                 </li>
                                 <li className="snsFabook">
-                                    <a>
+                                    <a href="https://ko-kr.facebook.com/"> 페이스북 로그인
                                         <img src="./images/fafa.png" />
                                     </a>
                                 </li>
                                 <li className="snsLine">
-                                    <a>
+                                    <a href="https://help.line.me/line/win/categoryId/10000371/pc?lang=ko&country=KR"> Line으로 로그인
                                         <img src="./images/line.png" />
                                     </a>
                                 </li>

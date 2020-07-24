@@ -2,75 +2,116 @@ import React from "react";
 import "./member3.scss";
 import { render } from "@testing-library/react";
 import { createRenderer } from "react-dom/test-utils";
-// import Main from "./Main"
 
 class member3 extends React.Component {
     constructor() {
         super();
         this.state = {
-            isHoveredUpper: false
-        }
+            isHoveredUpper: false,
+            isHoveredUpper2: false,
 
-        this.state = {
-            isHoveredUpper2: false
-        }
-
-        this.state = {
             email: "",
             name: "",
-            password: ""
+            password: "",
+            useremail: "",
+            username: "",
+            userpassword: ""
         }
     }
-    // 10자에서 20자
-    // e.target value
-    // ]sew 
 
-    componentDidMount() {
 
-    }
+    componentDidMount() { }
 
-    /* handleLogin = () => {
-         if (this.state.Id.length > 10 && this.state.Id.length < 20) {
-             alert("중복되는 아이디입니다.");
-         } else if (this.state.pw !==  && this.state.pw !== this.state.memberPw) {
-             this.setState({ click: true });
-             alert("다시 입력해주세요.");
-             this.props.history.push("/member3");
-         }
-     }
- 
-     handleChangeId = (e) => {
-         this.setState({
-             id: e.target.value,
-         });
-     };
- 
-     handleChangePw = (e) => {
-         this.setState({
-             pw: e.target.value,
-         });
-     };
- 
-     handleKeyPress = (e) => {
-         if (e.key === "Enter") {
-             this.handlepassMain();
-         }
-     }*/
+
+    handleClick = (e) => {
+        e.preventDefault();
+        fetch("http://10.58.1.71:8000/signup",
+            {
+                method: "POST", body: JSON.stringify(
+                    { name: this.state.name, password: this.state.password, email: this.state.email }),
+            })
+            .then((res) => res.json())
+            .then((res) => {
+                localStorage.setItem("Authorization", res.token);
+                if (localStorage.getItem("Authorization")) {
+                    alert("회원가입 성공하셨습니다."); this.props.history.push("/login");
+                } else {
+                    alert("처음부터 다시 해주세요");
+                    this.props.history.push("/login");
+                }
+            });
+    };
+
+    handleChangeId = (e) => {
+        e.preventDefault();
+        this.setState({
+            id: e.target.value,
+        });
+    };
+
+    handleChangePw = (e) => {
+        e.preventDefault();
+        this.setState({
+            password: e.target.value,
+        });
+    };
 
     passMain = (e) => {
-        fetch("http://10.58.1.71:8000/signup", {
-            method: "POST",
-            body: JSON.stringify({
-                email: this.state.email,
-                name: this.state.name,
-                password: this.state.password
-            }),
-        })
-            .then(response => console.log(response))
-        /*e.preventDefault();
-        console.log("main");
+        e.preventDefault();
+        fetch("http://10.58.1.71:8000/signup",
+            {
+                method: "POST",
+                body: JSON.stringify(
+                    { id: this.state.id, password: this.state.password, }),
+            })
+            .then((res) => res.json()).then((res) => {
+                localStorage.setItem("Authorization", res.token);
+                if (res.token) {
+                    alert("로그인 성공하셨습니다."); this.props.history.push("/login");
+                } else {
+                    alert("올바른 사용자가 아닙니다. 회원가입 먼저 해주세요.");
+                    this.props.history.push("/login");
+                }
+            });
+
+        e.preventDefault();
+        console.log("Login");
         this.props.history.push("/main");
-        alert("닥터자르트에 오신 것을 환영합니다.");*/
+        alert("닥터자르트에 오신 것을 환영합니다.");
+    }
+
+    passMember = (e) => {
+        alert("사용가능한 ID입니다.")
+        /*if (id === userid) {
+            alert("중복되는 ID입니다.")
+        }
+        else {
+            alert("사용가능한 ID입니다.")
+        }*/
+    }
+
+    handleChangeId = (e) => {
+        e.preventDefault();
+        this.setState({
+            id: e.target.value,
+        });
+    };
+
+    handleChangePw = (e) => {
+        e.preventDefault();
+        this.setState({
+            password: e.target.value,
+        });
+    };
+
+    handleKeyPress = (e) => {
+        if (this.state.password.length > 10 && this.state.password.length < 20 && this.state.id.length > 1) {
+            this.props.history.push("/Login");
+            alert("비밀번호 10자 ~ 20자 통과, 합격");
+        } else {
+            this.setState({ click: true });
+            alert("올바르게 입력해주세요.");
+        }
     }
 
     render() {
@@ -89,7 +130,7 @@ class member3 extends React.Component {
 
                         <div className="memberInfo">회원정보 입력</div>
                         <span className="inputBigContainer">
-                            <input type="text" placeholder="사용하실 ID를 입력해 주세요." className="inputStyle" />
+                            <input type="text" placeholder="사용하실 ID를 입력해 주세요." className="inputStyle" onChange={this.handleChangeId} />
 
                             <div className="btnWrap2">
                                 <div className="btn-upper2" onMouseEnter={() => this.setState({ isHoveredUpper2: true })} onMouseLeave={() => this.setState({ isHoveredUpper2: false })}>
@@ -101,32 +142,27 @@ class member3 extends React.Component {
                         </span>
 
                         <div className="memberInfo">
-                            <input type="text" placeholder="패스워드: 영문/숫자 조합으로 10~20자 이내" className="inputStyle" />
+                            <input type="text" placeholder="패스워드: 영문/숫자 조합으로 10~20자 이내" className="inputStyle" onChange={this.handleChangePw} />
                             <input type="text" placeholder="패스워드를 다시 입력해 주세요." className="inputStyle" />
                         </div>
                         <p className="error">비밀번호를 입력해주세요.</p>
 
                         <form className="emailDivision">
                             <div className="inputText">
-                                {/* <input className="inputPwRewrite" type="password" maxlength="20" placeholder="패스워드를 다시 입력해주세요." /> */}
                                 <p className="error"></p>
                             </div>
 
                             <div className="inputEmail">
                                 <div className="inputText">
-                                    <input name="email1" className="error" type="text" maxlength="25" placeholder="이메일 입력" />
+                                    <input name="email1" className="error" type="text" maxLength="25" placeholder="이메일 입력" />
                                 </div>
                                 <span className="at">@
                                 </span>
                                 <div className="inputText">
-                                    <input name="email2" className="error" type="text" maxlength="25" />
+                                    <input name="email2" className="error" type="text" maxLength="25" />
 
                                 </div>
                                 <button className="emailSelect" title="검색옵션 선택" type="button">직접입력</button>
-                                <div className="selectbox">
-                                    <button className="title mail" type="button" title="검색옵션 선택">선택</button>
-                                    <ul className="selList" id="emailList" style="max-height: 0px; display: none;">
-                                    </ul></div>
                             </div>
                             <p className="ps">* 만 14세 미만은 회원 가입 및 서비스 이용이 불가합니다.</p>
                             <div className="joinTerms">
@@ -180,7 +216,7 @@ class member3 extends React.Component {
                                 <div className="btn-upper" onMouseEnter={() => this.setState({ isHoveredUpper: true })} onMouseLeave={() => this.setState({ isHoveredUpper: false })}>
                                     <div className="black-bg" />
                                     <div className={`white-bg ${this.state.isHoveredUpper ? "hover" : ""}`} />
-                                    <button className={`loginBtn ${this.state.isHoveredUpper ? "hover" : ""}`} onClick={this.passMain}>Dr.Jart+ 가 입 하 기</button>
+                                    <button className={`loginBtn ${this.state.isHoveredUpper ? "hover" : ""}`} onClick={this.handleKeyPress}>Dr.Jart+ 가 입 하 기</button>
                                 </div>
                             </div>
                         </form>
