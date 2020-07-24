@@ -6,18 +6,17 @@
 
   .navHeader {
     min-width: 1200px;
-    height: 140px;
+    height: 108px;
     background-color: white;
     margin: 0;
     padding: 0 60px 0px 200px;
+    border-bottom: 1px solid #eee;
     display: flex;
     align-items: flex-end;
 
     .navWrap {
       width: 1710px;
-      // margin: 0 auto;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 30px;
+      padding-bottom: 20px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -26,6 +25,8 @@
         height: 40px;
         margin-right: 45px;
         font-size: 32px;
+        font-weight: 600;
+        color: #222;
         cursor: pointer;
       }
 
@@ -34,8 +35,8 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-end;
-        font-size: 16px;
-        font-weight: 600;
+        font-size: 14px;
+        font-weight: 500;
         color: #999;
 
         a {
@@ -51,7 +52,7 @@
           cursor: pointer;
 
           div {
-            font-size: 12px;
+            font-size: 15px;
             text-align: center;
           }
 
@@ -92,7 +93,6 @@
         }
 
         .navSingle {
-          position: relative;
           .selectSol {
             width: 120px;
             height: 82px;
@@ -102,13 +102,11 @@
             line-height: 40px;
             background-color: white;
             position: absolute;
-            top: 51px;
+            top: 107px;
           }
         }
 
         .navSol {
-          position: relative;
-
           .selectSol {
             width: 120px;
             height: 482px;
@@ -118,13 +116,11 @@
             line-height: 40px;
             background-color: white;
             position: absolute;
-            top: 51px;
+            top: 107px;
           }
         }
 
         .navType {
-          position: relative;
-
           .selectType {
             width: 120px;
             height: 482px;
@@ -133,7 +129,7 @@
             line-height: 40px;
             background-color: white;
             position: absolute;
-            top: 51px;
+            top: 107px;
           }
         }
 
@@ -146,7 +142,7 @@
             line-height: 40px;
             background-color: white;
             position: fixed;
-            top: 139px;
+            top: 107px;
           }
         }
 

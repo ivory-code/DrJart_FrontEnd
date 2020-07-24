@@ -16,7 +16,6 @@ class Each extends React.Component {
   componentDidMount() {
     const observer = new IntersectionObserver(this.callback, options);
     observer.observe(this.imgRef.current);
-    console.log("hey", this.props.data);
   }
 
   callback = (entries, observer) => {
@@ -41,7 +40,7 @@ class Each extends React.Component {
       tag,
       price_sale,
       price,
-      productId,
+      id,
     } = this.props.data;
     const isSale = price_sale !== 0;
     return (
@@ -49,10 +48,10 @@ class Each extends React.Component {
         className="Each"
         onMouseEnter={() => this.setState({ isHovered: true })}
         onMouseLeave={() => this.setState({ isHovered: false })}
-        key={productId}
+        key={id}
       >
         <div className="eachProduct">
-          <Link to={`/product/all/detail/${productId}`}>
+          <Link to={`/product/all/detail/${id}`}>
             <div className="imgBox">
               <img
                 alt=""
