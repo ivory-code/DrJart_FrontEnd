@@ -1,10 +1,10 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import Each from "./Each.js";
 import Nav from "../../../Components/Nav/Nav.js";
 import Footer from "../../../Components/Footer/Footer.js";
 import API_URL from "../../../Config.js";
 import "./Product.scss";
-import { withRouter } from "react-router-dom";
 
 class Product extends React.Component {
   constructor() {

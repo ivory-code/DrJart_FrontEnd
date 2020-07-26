@@ -1,8 +1,10 @@
 import React from "react";
+import { withRouter, Link } from "react-router-dom"; // Link 추가 예정, 추가 후 주석제거
+import Slider from "react-slick";
 import Nav from "../../Components/Nav/Nav.js";
+// import DetailNav from "./DetailNav.js"; 상세페이지 결제 Nav 추가 예정, 추가 후 주석제거
 import Footer from "../../Components/Footer/Footer.js";
 import API_URL from "../../Config.js";
-import Slider from "react-slick";
 import "./Detail.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -107,10 +109,11 @@ class Detail extends React.Component {
             }
           />
         </div>
+        {/* <DetailNav /> DetailNav 컴포넌트 추가 후, 주석 삭제*/}
         <Footer />
       </div>
     );
   }
 }
 
-export default Detail;
+export default withRouter(Detail);

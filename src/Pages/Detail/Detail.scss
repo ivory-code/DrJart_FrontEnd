@@ -18,11 +18,11 @@ $slick-opacity-not-active: 0.5 !default;
     padding-right: 440px;
     overflow: hidden;
     .detailImg {
-      min-height: 768px;
+      height: 100vh;
       overflow: hidden;
       img {
-        width: 100%;
-        min-width: 1000px;
+        margin: 0 auto;
+        min-width: 750px;
         max-height: 768px;
         object-fit: contain;
       }
