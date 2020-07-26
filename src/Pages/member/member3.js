@@ -1,7 +1,5 @@
 import React from "react";
 import "./member3.scss";
-import { render } from "@testing-library/react";
-import { createRenderer } from "react-dom/test-utils";
 
 class member3 extends React.Component {
     constructor() {
@@ -9,7 +7,7 @@ class member3 extends React.Component {
         this.state = {
             isHoveredUpper: false,
             isHoveredUpper2: false,
-
+            // 버튼클릭 시 효과 넣은 부분 isHoveredUpper로 되어있습니다. 클래스명 btnWrap으로 되어있는 부분이 버튼 입니다.
             email: "",
             name: "",
             password: "",
@@ -58,7 +56,7 @@ class member3 extends React.Component {
 
     passMain = (e) => {
         e.preventDefault();
-        fetch("http://10.58.1.71:8000/signup",
+        fetch("http://10.58.1.71:8000/signup",  //회원 등록 시 signup으로 fetch 두었고, 토큰명은 Authorization
             {
                 method: "POST",
                 body: JSON.stringify(
@@ -82,12 +80,6 @@ class member3 extends React.Component {
 
     passMember = (e) => {
         alert("사용가능한 ID입니다.")
-        /*if (id === userid) {
-            alert("중복되는 ID입니다.")
-        }
-        else {
-            alert("사용가능한 ID입니다.")
-        }*/
     }
 
     handleChangeId = (e) => {
@@ -104,9 +96,9 @@ class member3 extends React.Component {
         });
     };
 
-    handleKeyPress = (e) => {
+    handleKeyPress = (e) => {     //아이디는 1자 이상 입력, 패스워드는 10자 이상 20자 미만까지만 입력 가능하게 해두었습니다. 조건 완료 시 메인페이지로 갑니다.
         if (this.state.password.length > 10 && this.state.password.length < 20 && this.state.id.length > 1) {
-            this.props.history.push("/Login");
+            this.props.history.push("/main");
             alert("비밀번호 10자 ~ 20자 통과, 합격");
         } else {
             this.setState({ click: true });

@@ -62,8 +62,6 @@
     font-family: "NotoB";
     font-weight: bold;
     color: #222;
-    /*background: url("https://image.drjart.com/front/ko/images/util/icon_loginJoin.gif")
-      no-repeat center;*/
   }
 
   .logoImage {
@@ -242,10 +240,10 @@
   }
 }
 
+//버튼에 마우스 버튼 올렸을 시 효과 변하는 부분. 아래부터입니다. btnWrap
 .btnWrap {
   position: relative;
   width: 100%;
-  /*height: 200px;*/
   margin: auto;
   border-radius: 1px;
   border-color: black;
@@ -293,6 +291,7 @@
   }
 }
 
+//버튼 효과 넣은 부분 입니다. 버튼이 2개이기 때문에 2번째 회원가입으로 되어있는 버튼은 btnWrap2로 넣었습니다.
 .btnWrap2 {
   position: relative;
   width: 350px;
@@ -375,6 +374,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
   button {
     display: inline-block;
     background: none;
@@ -387,6 +387,7 @@
     vertical-align: middle;
     cursor: pointer;
   }
+
   .selList {
     display: none;
     position: absolute;
