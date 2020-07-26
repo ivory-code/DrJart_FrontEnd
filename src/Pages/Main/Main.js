@@ -1,8 +1,7 @@
 import React from "react";
 import Nav from "../../Components/Nav/Nav.js";
-import BestProduct from "./BestProduct/BestProduct.js";
 import MainStory from "./MainStory/MainStory.js";
-import OnlineProduct from "./OnlineProduct/OnlineProduct.js";
+import Each from "../Products/Product/Each.js";
 import Review from "./Review/Review.js";
 import Footer from "../../Components/Footer/Footer.js";
 import Slider from "react-slick";
@@ -47,6 +46,7 @@ class Main extends React.Component {
       slidesToScroll: 1,
     };
     const { maindata } = this.state;
+
     return (
       <div className="Main">
         <Nav />
@@ -76,12 +76,12 @@ class Main extends React.Component {
               />
               <ul className="slideTextWrap">
                 <li className="titleText">
-                  <p>WATERFUL</p>
-                  <p>SUMMER</p>
+                  <p>당신이 잠든 사이</p>
+                  <p>수분으로 깨어나는 피부</p>
                 </li>
                 <li className="subText">
-                  <p>여름철 무더위에 지친 피부를 위한</p>
-                  <p>공홈만의 특별한 수분 3종 혜택 받으세요</p>
+                  <p>밤 사이 지친 피부를 관리하는 #딥슬립크림팩</p>
+                  <p>나이트 테라피 마스크를 만나보세요.</p>
                 </li>
                 <button className="detailBtn">자세히 보기</button>
               </ul>
@@ -93,12 +93,12 @@ class Main extends React.Component {
               />
               <ul className="slideTextWrap">
                 <li className="titleText">
-                  <p>WATERFUL</p>
-                  <p>SUMMER</p>
+                  <p>7월 첫 만남을</p>
+                  <p>기념하는 선물</p>
                 </li>
                 <li className="subText">
-                  <p>여름철 무더위에 지친 피부를 위한</p>
-                  <p>공홈만의 특별한 수분 3종 혜택 받으세요</p>
+                  <p>닥터자르트 공홈에서 첫 구매하고</p>
+                  <p>베스트 제품을 체험해보세요!!</p>
                 </li>
                 <button className="detailBtn">자세히 보기</button>
               </ul>
@@ -110,12 +110,12 @@ class Main extends React.Component {
               />
               <ul className="slideTextWrap">
                 <li className="titleText">
-                  <p>WATERFUL</p>
-                  <p>SUMMER</p>
+                  <p>더 예쁜 내일을 위한</p>
+                  <p>바이옴으로 셀프 홈케어해요♥</p>
                 </li>
                 <li className="subText">
-                  <p>여름철 무더위에 지친 피부를 위한</p>
-                  <p>공홈만의 특별한 수분 3종 혜택 받으세요</p>
+                  <p>수분 바이옴과 함께하는 셀프 홈케어로</p>
+                  <p>민감함은 지우고 촉촉한 피부로 가꿔보세요!</p>
                 </li>
                 <button className="detailBtn">자세히 보기</button>
               </ul>
@@ -126,7 +126,9 @@ class Main extends React.Component {
           <div className="bestProTitleWrap">
             <p>베스트셀러 TOP5</p>
           </div>
-          <BestProduct mainData={maindata} />
+          {maindata.slice(0, 5).map((best) => {
+            return <Each key={best.id} data={best} />;
+          })}
         </div>
         <div className="subSlider">
           <Slider {...settings}>
@@ -173,15 +175,17 @@ class Main extends React.Component {
           <div className="onlineTitleWrap">
             <p>온라인 혜택제품</p>
           </div>
-          <OnlineProduct mainData={maindata} />
+          {maindata.slice(5, 10).map((online) => {
+            return <Each key={online.id} data={online} />;
+          })}
         </div>
-        <MainStory mainData={maindata} />
+        <MainStory mainDatas={maindata} />
         <div className="reviewContainer">
           <div className="reviewTitleWrap">
             <p>베스트 포토리뷰</p>
             <p>고객님들께서 제품 사용 후 남겨주신 베스트 리뷰를 확인하세요.</p>
           </div>
-          <Review />
+          <Review data={maindata} />
         </div>
         <Footer />
       </div>

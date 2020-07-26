@@ -21,6 +21,7 @@ class SideNav extends React.Component {
   render() {
     const { navOn } = this.state;
     const { handleNav } = this;
+
     return (
       <div className="SideNav">
         <nav className="sideNavWrap">
@@ -92,7 +93,6 @@ class SideNav extends React.Component {
             <div className="webChat" />
             <div className="offchat" />
           </button>
-          <div className="chats"></div>
         </aside>
       </div>
     );

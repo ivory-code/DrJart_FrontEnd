@@ -43,6 +43,7 @@ class Each extends React.Component {
       id,
     } = this.props.data;
     const isSale = price_sale !== 0;
+
     return (
       <div
         className="Each"
