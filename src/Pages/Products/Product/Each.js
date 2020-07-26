@@ -23,7 +23,6 @@ class Each extends React.Component {
       if (entry.isIntersecting) {
         observer.unobserve(entry.target);
         entry.target.src = entry.target.dataset.src;
-      } else {
       }
     });
   };
@@ -51,7 +50,22 @@ class Each extends React.Component {
         key={id}
       >
         <div className="eachProduct">
-          <Link to={`/product/all/detail/${id}`}>
+          <Link
+            to={{
+              pathname: `/product/detail/${id}`,
+              state: {
+                newFlag: fleg_new,
+                bestFlag: fleg_best,
+                giftFlag: fleg_gift,
+                saleFlag: fleg_sale,
+                title: name,
+                imgUrl: image_url,
+                tag: tag,
+                price: price,
+                salePrice: price_sale,
+              },
+            }}
+          >
             <div className="imgBox">
               <img
                 alt=""
