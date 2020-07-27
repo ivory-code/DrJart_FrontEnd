@@ -22,7 +22,7 @@ class Product extends React.Component {
   }
 
   getProductDatas = () => {
-    fetch(`http://${API_URL}/product/all`, {
+    fetch(`${API_URL}/product/all`, {
       method: "GET",
     })
       .then((res) => res.json())

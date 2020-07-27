@@ -54,15 +54,7 @@ class Each extends React.Component {
             to={{
               pathname: `/product/detail/${id}`,
               state: {
-                newFlag: fleg_new,
-                bestFlag: fleg_best,
-                giftFlag: fleg_gift,
-                saleFlag: fleg_sale,
-                title: name,
-                imgUrl: image_url,
-                tag: tag,
-                price: price,
-                salePrice: price_sale,
+                ...this.props.data,
               },
             }}
           >

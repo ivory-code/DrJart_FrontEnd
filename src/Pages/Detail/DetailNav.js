@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
-import throttle from "../../Util/throttle.js";
 import FloatingNav from "./FloatingNav.js";
 import "./DetailNav.scss";
 
@@ -11,18 +10,8 @@ class DetailNav extends React.Component {
       isWishBtnHovered: false,
       isCartBtnHovered: false,
       count: 1,
-      scrollTop: 0,
     };
   }
-
-  componentDidMount() {
-    window.addEventListener("scroll", throttle(this.handleScroll, 100));
-  }
-
-  handleScroll = (e) => {
-    const scrollTop = ("scroll", e.srcElement.scrollingElement.scrollTop);
-    this.setState({ scrollTop });
-  };
 
   handleCount = (num) => {
     const { count } = this.state;
@@ -35,7 +24,7 @@ class DetailNav extends React.Component {
   };
 
   render() {
-    const { isWishBtnHovered, isCartBtnHovered, count, scrollTop } = this.state;
+    const { isWishBtnHovered, isCartBtnHovered, count } = this.state;
     const {
       newFlag,
       bestFlag,
@@ -46,6 +35,7 @@ class DetailNav extends React.Component {
       price,
       salePrice,
     } = this.props.location.state;
+    const { scrollTop } = this.props;
     const isSale = salePrice !== 0;
     const saleprice = salePrice * count;
     const normalprice = price * count;

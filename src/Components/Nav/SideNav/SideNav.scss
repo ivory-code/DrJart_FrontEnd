@@ -1,5 +1,6 @@
 .SideNav {
   transition: transform 0.5s;
+
   .sideNavWrap {
     display: flex;
     justify-content: center;
@@ -257,27 +258,32 @@
       justify-content: space-between;
       cursor: pointer;
 
-      div {
+      .offchat,
+      .naverChat,
+      .kakaoChat,
+      .webChat {
         position: fixed;
         bottom: 30px;
         right: 30px;
         width: 60px;
         height: 60px;
         background-color: #ccc;
+        background-image: url(/images/offchat.png);
         border-radius: 100%;
-        transition: transform 0.5s;
+        transition: transform 0.3s;
       }
 
-      .offchat {
-        background-image: url(/images/offchat.png);
-        &:hover {
-          background-color: #222;
-          &:active {
-            background-image: url(/images/onchat.png);
+      &:focus {
+        .offchat {
+          background-image: url(/images/offchat.png);
+          &:hover {
+            background-color: #222;
+            &:active {
+              background-image: url(/images/onchat.png);
+            }
           }
         }
-      }
-      &:focus {
+
         .naverChat {
           background-image: url(/images/offnaver.png);
           transform: translate(0, -225px);
@@ -299,6 +305,46 @@
           transform: translate(0, -75px);
           &:hover {
             background-image: url(/images/onwebChat.png);
+          }
+        }
+      }
+
+      .scroll {
+        transform: translate(0, -235px);
+      }
+
+      &:focus {
+        .scroll:nth-child(1) {
+          background-image: url(/images/offwebChat.png);
+          transform: translate(0, -310px);
+          &:hover {
+            background-image: url(/images/onwebChat.png);
+          }
+        }
+
+        .scroll:nth-child(2) {
+          background-image: url(/images/offnaver.png);
+          transform: translate(0, -460px);
+          &:hover {
+            background-image: url(/images/onnaver.png);
+          }
+        }
+
+        .scroll:nth-child(3) {
+          background-image: url(/images/offkakao.png);
+          transform: translate(0, -385px);
+          &:hover {
+            background-image: url(/images/onkakao.png);
+          }
+        }
+
+        .scroll:nth-child(4) {
+          background-image: url(/images/offchat.png);
+          &:hover {
+            background-color: #222;
+            &:active {
+              background-image: url(/images/onchat.png);
+            }
           }
         }
       }

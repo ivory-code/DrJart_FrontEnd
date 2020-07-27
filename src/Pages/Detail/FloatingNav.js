@@ -21,6 +21,7 @@ class FloatingNav extends React.Component {
       <div className="floating">
         <div className="floatingTitle">{title}</div>
         <div className="totalPriceCount">
+          <span>총 구매 금액</span>
           {isSale
             ? `${saleprice.toLocaleString()}원`
             : `${normalprice.toLocaleString()}원`}

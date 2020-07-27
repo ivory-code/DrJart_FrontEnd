@@ -27,16 +27,17 @@ class Nav extends React.Component {
   };
 
   render() {
+    const { scrollTop } = this.props;
     return (
       <div className="Nav">
-        <SideNav />
+        <SideNav scrollTop={scrollTop} />
         <header className="navHeader">
           <div className="navWrap">
             <Link to="/main">
               <h1 className="navMainCate">제품</h1>
             </Link>
             <ul className="navSubCate">
-              <Link to="/product/all">
+              <Link to="/product">
                 <li>모든제품</li>
               </Link>
               <li
