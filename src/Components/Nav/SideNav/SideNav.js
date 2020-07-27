@@ -93,7 +93,6 @@ class SideNav extends React.Component {
             <div className="webChat" />
             <div className="offchat" />
           </button>
-          <div className="chats"></div>
         </aside>
       </div>
     );

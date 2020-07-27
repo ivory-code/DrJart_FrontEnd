@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://localhost:3001/member3?#header -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3001/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3001/logo192.png">
+    <link rel="manifest" href="http://localhost:3001/manifest.json">
+    <title>Dr.Mozart+</title>
+  <style type="text/css">* {
+  margin: 0; }
+
+.img {
+  width: 5px;
+  height: 5px; }
+
+.titEn {
+  font-family: "HB";
+  font-weight: "normal"; }
+
+.pageTitArea {
+  padding-top: 55px;
+  padding-bottom: 57px;
+  text-align: center;
+  font-family: "NotoB"; }
+
+.pageTitArea h2 {
+  margin: 20px 0 10px;
+  font-size: 48px;
+  line-height: 48px;
+  color: #222222; }
+
+.loginCon {
+  margin: 0 auto;
+  padding-top: 50px;
+  width: 420px;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #eeeeee; }
+
+.inpWrap {
+  position: relative;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30%; }
+
+.btnWrap {
+  position: relative;
+  width: 83%;
+  margin: auto;
+  border-radius: 1px;
+  border-color: black; }
+
+.al_b {
+  display: flex;
+  justify-content: center; }
+
+.al_c {
+  text-align: center; }
+
+.inpText input {
+  width: 350px;
+  height: 40px;
+  padding: 0 8px;
+  line-height: 40px;
+  text-indent: 4px;
+  border: 1px solid #dcdcdc;
+  outline: none;
+  box-sizing: border-box;
+  display: flex;
+  margin: 0 auto; }
+
+.inputContainer {
+  position: relative;
+  width: 80%; }
+
+input,
+textarea,
+select,
+button {
+  font-family: "NotoL";
+  font-size: 14px;
+  letter-spacing: 0;
+  vertical-align: middle; }
+
+.login-container {
+  margin: 300px auto;
+  display: flex;
+  max-height: 800px;
+  max-width: 500px;
+  border: 2px solid lightgray;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.loginBox .loginInfoFind {
+  text-align: center; }
+
+ol,
+ul,
+li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px; }
+
+.loginBtn {
+  position: relative;
+  padding: 10px;
+  width: 350px;
+  background: black;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px; }
+
+.loginBtn2 {
+  position: relative;
+  width: 350px;
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  color: #555555;
+  border: 1px solid #999999; }
+
+.btnSizeL {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 5px; }
+
+.loginBtn:hover {
+  background: white; }
+
+.loginBtn:hover {
+  background: whitesmoke; }
+
+.loginBtn2:hover {
+  background: #999999; }
+
+.loginCon .login_cont .btn_wrap {
+  margin-top: 25px; }
+
+.loginCon .login_cont {
+  display: none;
+  padding: 40px 50px 60px; }
+
+.snsLogin {
+  padding: 10px 10px 10px 10px;
+  background: #f9f9f9;
+  text-align: center;
+  margin: auto;
+  width: 350px; }
+
+.snsLogin .snsSign li a {
+  display: block;
+  width: 38px;
+  height: 38px; }
+
+.snsLogin .snsSign li {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 5px; }
+</style><style type="text/css">.agreeContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 50px;
+  padding-left: 20px; }
+
+.agree {
+  padding-left: 5px; }
+
+.allAgree0 {
+  display: flex;
+  justify-content: space-between; }
+
+.allAgree1 {
+  display: flex;
+  justify-content: flex-start; }
+
+.allAgree2 {
+  display: flex;
+  justify-content: flex-end; }
+
+.BigContainer {
+  font-weight: normal;
+  font-size: 14px;
+  color: #555;
+  line-height: 20px; }
+
+.registerStep {
+  padding: 20px;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-end; }
+
+.mCSBinside {
+  overflow-y: scroll;
+  height: 300px;
+  border: 1px solid red; }
+
+.joinGuide {
+  padding: 50px 0;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #eee;
+  background: #f9f9f9;
+  text-align: center; }
+  .joinGuide p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #222;
+    line-height: 24px; }
+  .joinGuide span {
+    color: #999; }
+
+.pageTitArea {
+  padding-top: 55px;
+  padding-bottom: 57px;
+  text-align: center;
+  /*font-family: "NotoB";*/ }
+
+.registerStep ol li {
+  position: relative;
+  float: left;
+  z-index: 1;
+  margin-left: 20px;
+  margin-bottom: -1px;
+  padding: 0 2px 8px 2px;
+  color: #dcdcdc;
+  display: flex;
+  justify-content: flex-end; }
+</style><style type="text/css">.container {
+  position: relative;
+  padding-left: 90px;
+  padding-bottom: 120px;
+  box-sizing: border-box; }
+  .container .joinTitle {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 30px;
+    font-family: "NotoB";
+    color: #222; }
+  .container .memberInfo {
+    height: 40px;
+    font-family: "NotoB";
+    font-size: 16px;
+    color: #222;
+    width: 60%; }
+
+.motherInputContainer {
+  display: inline-block;
+  width: 80%; }
+
+.inputBigContainer {
+  margin-top: 5%;
+  color: #111;
+  border-color: #222222;
+  height: 40px;
+  background: #fff;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "NotoL";
+  font-size: 14px;
+  vertical-align: middle;
+  display: inline-flex;
+  justify-content: flex-end;
+  margin-bottom: 5px; }
+
+.inputStyle {
+  width: 70%;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  outline: none;
+  box-sizing: border-box;
+  height: 40px;
+  margin-bottom: 15px; }
+
+.doubleCheck {
+  width: 140px;
+  margin-left: 5px; }
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px; }
+
+.inputText input {
+  width: 100%;
+  height: 40px;
+  padding: 0 8px;
+  line-height: 40px;
+  color: #555;
+  text-indent: 4px;
+  border: 1px solid #dcdcdc;
+  outline: none;
+  box-sizing: border-box; }
+
+.emailDivision {
+  margin-top: 50px; }
+</style><style type="text/css">* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0; }
+</style><style type="text/css">ul,
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+</style></head>
+  <body>
+    <div id="root"><div><article class="container"><h1 class="joinTitle">회원가입</h1><div class="memberInfo">회원정보 입력</div><div class="motherInputContainer"><span class="inputBigContainer"><input type="text" placeholder="사용하실 ID를 입력해 주세요." class="inputStyle"><button class="doubleCheck">중복확인</button></span><div class="memberInfo"><input type="text" placeholder="패스워드: 영문/숫자 조합으로 10~20자 이내" class="inputStyle"><input type="text" placeholder="패스워드를 다시 입력해 주세요." class="inputStyle"></div><p class="error">비밀번호를 입력해주세요.</p><form class="emailDivision"><div class="inputText"><p class="error"></p></div><div class="inputEmail"><div class="inputText"><input name="email1" class="error" type="text" maxlength="25" placeholder="Drjart"></div><span class="at">@</span><div class="inputText"><input name="email2" class="error" type="text" maxlength="25"></div></div></form></div></article></div></div>
+  <script src="./Dr.Mozart+_files/bundle.js.다운로드"></script><script src="./Dr.Mozart+_files/1.chunk.js.다운로드"></script><script src="./Dr.Mozart+_files/main.chunk.js.다운로드"></script><script src="./Dr.Mozart+_files/main.7df23f7e2917cf2dfd8b.hot-update.js.다운로드"></script>
+
+</body></html>
