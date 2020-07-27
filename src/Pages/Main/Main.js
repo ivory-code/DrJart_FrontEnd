@@ -43,6 +43,7 @@ class Main extends React.Component {
       slidesToScroll: 1,
     };
     const { maindata } = this.state;
+
     return (
       <div className="Main">
         <Nav />

@@ -22,6 +22,7 @@ class SideNav extends React.Component {
     const { navOn } = this.state;
     const { scrollTop } = this.props;
     const { handleNav } = this;
+
     return (
       <div className="SideNav">
         <nav className="sideNavWrap">

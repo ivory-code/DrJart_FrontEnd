@@ -1,0 +1,82 @@
+$slick-font-path: "./fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "./" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: #555 !default;
+$slick-dot-color-active: white !default;
+$slick-prev-character: "\2190" !default;
+$slick-next-character: "\2192" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 16px !default;
+$slick-opacity-default: 1 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.5 !default;
+
+.Detail {
+  .detailWrap {
+    padding-left: 90px;
+    padding-right: 440px;
+    overflow: hidden;
+
+    .detailImg {
+      height: 100vh;
+      overflow: hidden;
+
+      img {
+        margin: 0 auto;
+        min-width: 750px;
+        max-height: 768px;
+        object-fit: contain;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .detailReview {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .detailScore {
+      padding: 95px 0 44px;
+
+      span {
+        font-size: 24px;
+
+        &:nth-child(2) {
+          font-size: 28px;
+        }
+      }
+    }
+
+    .detailRevImg {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .revImg {
+        width: 127px;
+        height: 127px;
+        margin-right: 20px;
+        background: yellowgreen;
+
+        &:nth-child(6) {
+          margin-right: 0;
+        }
+
+        img {
+          max-width: 140px;
+          max-height: 140px;
+          object-fit: fill;
+        }
+      }
+    }
+  }
+
+  .detailInfo {
+    padding-bottom: 120px;
+  }
+}

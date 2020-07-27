@@ -1,6 +1,7 @@
 import React from "react";
 import API_URL from "../../../Config.js";
 import "./Review.scss";
+
 class Review extends React.Component {
   constructor() {
     super();
@@ -11,6 +12,7 @@ class Review extends React.Component {
   componentDidMount() {
     this.getMainProduct();
   }
+
   getMainProduct = () => {
     fetch(`${API_URL}/product/main`, {
       method: "GET",
@@ -25,6 +27,7 @@ class Review extends React.Component {
   render() {
     const { review } = this.state;
     const { data } = this.props;
+
     return (
       <div className="Review">
         <div className="reviewWrap">

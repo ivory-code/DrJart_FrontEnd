@@ -1,9 +1,7 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import "./Each.scss";
-
 const options = { threshold: 0.5 };
-
 class Each extends React.Component {
   constructor(props) {
     super(props);
@@ -12,12 +10,10 @@ class Each extends React.Component {
       isHovered: false,
     };
   }
-
   componentDidMount() {
     const observer = new IntersectionObserver(this.callback, options);
     observer.observe(this.imgRef.current);
   }
-
   callback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -26,7 +22,6 @@ class Each extends React.Component {
       }
     });
   };
-
   render() {
     const { isHovered } = this.state;
     const {
@@ -41,7 +36,7 @@ class Each extends React.Component {
       product_detail__price,
       id,
     } = this.props.data;
-    const isSale = product_detail__price_sale !== 0;
+    const isSale = price_sale !== 0;
     return (
       <div
         className="Each"
@@ -131,5 +126,4 @@ class Each extends React.Component {
     );
   }
 }
-
 export default withRouter(Each);

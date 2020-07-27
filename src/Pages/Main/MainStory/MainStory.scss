@@ -3,12 +3,14 @@
   display: flex;
   justify-content: flex-start;
   overflow: hidden;
+
   .mainStory {
     width: 73%;
     padding-left: 200px;
     display: flex;
     justify-content: flex-start;
     z-index: 100;
+
     .storyInfo {
       width: 42%;
       height: 100%;
@@ -20,25 +22,30 @@
       flex-direction: column;
       justify-content: space-around;
       align-items: flex-start;
+
       p {
         font-weight: 900;
         color: #222;
       }
+
       .subTitle {
         height: 40px;
         margin-top: 10%;
         font-size: 15px;
       }
+
       .mainTitle {
         margin-top: 20%;
         font-size: 30px;
       }
+
       .caption {
         margin-top: 30%;
         font-size: 13px;
         line-height: 24px;
         color: #555;
       }
+
       .goStoryBtn {
         background-color: transparent;
         padding-bottom: 2px;
@@ -49,6 +56,7 @@
         font-weight: 600;
       }
     }
+
     .storyVideo {
       width: 78%;
       min-width: 537px;
@@ -56,6 +64,7 @@
       background-image: url(/images/storyItem.png);
       background-position: center;
       overflow: hidden;
+
       .storyItem {
         max-width: auto;
         max-height: 100%;
@@ -63,6 +72,7 @@
       }
     }
   }
+
   .storySlide {
     width: 500px;
     height: 620px;
@@ -79,6 +89,7 @@
         font-size: 15px;
       }
     }
+
     .Each {
       width: 400px;
       height: 470px;
@@ -90,24 +101,29 @@
       align-items: center;
       overflow: hidden;
       cursor: pointer;
+
       &:focus {
         outline: none;
       }
+
       .eachProduct {
         .imgBox {
           max-width: 280px;
         }
       }
+
       .hiddenBox {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 40px;
         z-index: 10;
+
         .box {
           display: flex;
           align-items: center;
           justify-content: center;
+
           .buy {
             display: flex;
             justify-content: center;
@@ -118,12 +134,14 @@
             border: 1px solid black;
             transition: background-color 0.2s ease-in-out;
             font-size: 14px;
+
             &:hover {
               border: none;
               background-color: #3ab5b7;
               color: #fff;
             }
           }
+
           .icon {
             display: flex;
             justify-content: center;
@@ -134,17 +152,21 @@
             border: 1px solid black;
             border-right: none;
           }
+
           .wish {
             border-right: 1px solid black;
           }
+
           a {
             color: #222;
           }
         }
+
         &.On {
           transform: translateY(-60%);
           transition: transform 0.2s ease-in-out;
         }
+
         &.Off {
           transform: translateY(140%);
           transition: transform 0.2s ease-in-out;

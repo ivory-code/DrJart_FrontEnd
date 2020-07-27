@@ -15,6 +15,7 @@ class MainStory extends React.Component {
       slidesToScroll: 1,
     };
     const { mainDatas } = this.props;
+
     return (
       <div className="MainStory">
         <div className="mainStory">
