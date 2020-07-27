@@ -17,11 +17,9 @@ class Main extends React.Component {
       maindata: [],
     };
   }
-
   componentDidMount() {
     this.getMainProduct();
   }
-
   getMainProduct = () => {
     fetch(`${API_URL}/product/main`, {
       method: "GET",
@@ -33,7 +31,6 @@ class Main extends React.Component {
         });
       });
   };
-
   render() {
     const settings = {
       autoplay: true,
@@ -192,5 +189,4 @@ class Main extends React.Component {
     );
   }
 }
-
 export default Main;
