@@ -1,10 +1,10 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import Each from "./Each.js";
 import Nav from "../../../Components/Nav/Nav.js";
 import Footer from "../../../Components/Footer/Footer.js";
 import API_URL from "../../../Config.js";
 import "./Product.scss";
-import { withRouter } from "react-router-dom";
 
 class Product extends React.Component {
   constructor() {
@@ -71,40 +71,40 @@ class Product extends React.Component {
       <>
         <Nav />
         <div className="Product">
-          <header className="productHeader">
-            <h2>모든제품</h2>
-            <div className="filterListBtnBox">
-              <button
-                className={`filterListBtn ${isClicked ? "On" : "Off"}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  this.setState({
-                    isClicked: true,
-                  });
-                }}
-                onMouseLeave={() => this.setState({ isClicked: false })}
-              >
-                {curCategoryValue}
-                <ul className={isClicked ? "filterListOn" : "filterListOff"}>
-                  {categories.map((el) => {
-                    return (
-                      <li key={el}>
-                        <label>
-                          <input
-                            type="radio"
-                            value={el}
-                            onClick={(e) => this.sortDatas(e)}
-                          />
-                          {el}
-                        </label>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </button>
-            </div>
-          </header>
           <div className="productWrapper">
+            <header className="productHeader">
+              <h2>모든제품</h2>
+              <div className="filterListBtnBox">
+                <button
+                  className={`filterListBtn ${isClicked ? "On" : "Off"}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    this.setState({
+                      isClicked: true,
+                    });
+                  }}
+                  onMouseLeave={() => this.setState({ isClicked: false })}
+                >
+                  {curCategoryValue}
+                  <ul className={isClicked ? "filterListOn" : "filterListOff"}>
+                    {categories.map((el) => {
+                      return (
+                        <li key={el}>
+                          <label>
+                            <input
+                              type="radio"
+                              value={el}
+                              onClick={(e) => this.sortDatas(e)}
+                            />
+                            {el}
+                          </label>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </button>
+              </div>
+            </header>
             {productDatas.map((data) => {
               return <Each key={data.id} data={data} />;
             })}

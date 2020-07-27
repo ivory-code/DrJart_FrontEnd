@@ -9,7 +9,6 @@ class Review extends React.Component {
       review: [],
     };
   }
-
   componentDidMount() {
     this.getMainProduct();
   }
@@ -66,5 +65,4 @@ class Review extends React.Component {
     );
   }
 }
-
 export default Review;

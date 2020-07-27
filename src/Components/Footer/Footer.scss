@@ -3,6 +3,7 @@
     height: 59px;
     padding: 0 60px 0 150px;
     border-top: 1px solid #eee;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,6 +24,7 @@
           padding-right: 30px;
           border-right: 1px solid #dcdcdc;
           cursor: pointer;
+
           &:hover {
             color: #555;
           }
@@ -68,6 +70,7 @@
         border-right: 1px solid #dcdcdc;
         display: flex;
         justify-content: space-around;
+
         &:hover {
           color: #555;
         }
@@ -78,6 +81,7 @@
         border-right: 1px solid #dcdcdc;
         display: flex;
         justify-content: space-around;
+
         &:hover {
           color: #555;
         }
@@ -87,6 +91,7 @@
         min-width: 110px;
         display: flex;
         justify-content: space-around;
+
         &:hover {
           color: #555;
         }

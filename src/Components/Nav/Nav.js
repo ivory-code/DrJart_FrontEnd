@@ -27,9 +27,10 @@ class Nav extends React.Component {
   };
 
   render() {
+    const { scrollTop } = this.props;
     return (
       <div className="Nav">
-        <SideNav />
+        <SideNav scrollTop={scrollTop} />
         <header className="navHeader">
           <div className="navWrap">
             <Link to="/main">

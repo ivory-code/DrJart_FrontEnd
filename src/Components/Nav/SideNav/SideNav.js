@@ -20,6 +20,7 @@ class SideNav extends React.Component {
 
   render() {
     const { navOn } = this.state;
+    const { scrollTop } = this.props;
     const { handleNav } = this;
 
     return (
@@ -88,10 +89,10 @@ class SideNav extends React.Component {
         </div>
         <aside className="asideBtn">
           <button className="chatBtn">
-            <div className="naverChat" />
-            <div className="kakaoChat" />
-            <div className="webChat" />
-            <div className="offchat" />
+            <div className={`naverChat ${scrollTop > 650 ? "scroll" : ""}`} />
+            <div className={`kakaoChat ${scrollTop > 650 ? "scroll" : ""}`} />
+            <div className={`webChat ${scrollTop > 650 ? "scroll" : ""}`} />
+            <div className={`offchat ${scrollTop > 650 ? "scroll" : ""}`} />
           </button>
         </aside>
       </div>
