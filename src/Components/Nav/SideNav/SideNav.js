@@ -21,6 +21,7 @@ class SideNav extends React.Component {
   render() {
     const { navOn } = this.state;
     const { handleNav } = this;
+
     return (
       <div className="SideNav">
         <nav className="sideNavWrap">

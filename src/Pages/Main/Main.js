@@ -1,8 +1,7 @@
 import React from "react";
 import Nav from "../../Components/Nav/Nav.js";
-import BestProduct from "./BestProduct/BestProduct.js";
 import MainStory from "./MainStory/MainStory.js";
-import OnlineProduct from "./OnlineProduct/OnlineProduct.js";
+import Each from "../Products/Product/Each.js";
 import Review from "./Review/Review.js";
 import Footer from "../../Components/Footer/Footer.js";
 import Slider from "react-slick";
@@ -24,7 +23,7 @@ class Main extends React.Component {
   }
 
   getMainProduct = () => {
-    fetch(`http://${API_URL}/product/main`, {
+    fetch(`${API_URL}/product/main`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -47,6 +46,7 @@ class Main extends React.Component {
       slidesToScroll: 1,
     };
     const { maindata } = this.state;
+
     return (
       <div className="Main">
         <Nav />
@@ -126,7 +126,9 @@ class Main extends React.Component {
           <div className="bestProTitleWrap">
             <p>베스트셀러 TOP5</p>
           </div>
-          <BestProduct mainData={maindata} />
+          {maindata.slice(0, 5).map((best) => {
+            return <Each key={best.id} data={best} />;
+          })}
         </div>
         <div className="subSlider">
           <Slider {...settings}>
@@ -173,7 +175,9 @@ class Main extends React.Component {
           <div className="onlineTitleWrap">
             <p>온라인 혜택제품</p>
           </div>
-          <OnlineProduct mainData={maindata} />
+          {maindata.slice(5, 10).map((online) => {
+            return <Each key={online.id} data={online} />;
+          })}
         </div>
         <MainStory mainData={maindata} />
         <div className="reviewContainer">

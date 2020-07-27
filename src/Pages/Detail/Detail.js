@@ -1,8 +1,6 @@
 import React from "react";
-import { withRouter, Link } from "react-router-dom"; // Link 추가 예정, 추가 후 주석제거
 import Slider from "react-slick";
 import Nav from "../../Components/Nav/Nav.js";
-// import DetailNav from "./DetailNav.js"; 상세페이지 결제 Nav 추가 예정, 추가 후 주석제거
 import Footer from "../../Components/Footer/Footer.js";
 import API_URL from "../../Config.js";
 import "./Detail.scss";
@@ -10,18 +8,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 class Detail extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       preview: [],
       review: [],
       html: [],
-      id: [],
     };
   }
 
   componentDidMount() {
-    fetch(`http://${API_URL}/product/detail/1`, {
+    fetch(`${API_URL}/product/detail/${this.props.match.params.id}`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -29,8 +26,7 @@ class Detail extends React.Component {
         this.setState({
           preview: result.images,
           review: result.reviews,
-          html: result.data,
-          id: result.id,
+          html: result.datas,
         });
       });
   }
@@ -40,7 +36,7 @@ class Detail extends React.Component {
       customPaging: function (i) {
         return (
           <div className="detailImg">
-            <img alt="sliderImg" src={`preview[0].image_url${i}`} />
+            <img alt="sliderImg" src={`preview[${i}].image__image_url`} />
           </div>
         );
       },
@@ -54,49 +50,38 @@ class Detail extends React.Component {
       autoplaySpeed: 2000,
     };
     const { preview, html, review } = this.state;
+    console.log(this.props);
+
     return (
       <div className="Detail">
         <Nav />
         <div className="detailWrap">
           <Slider {...settings}>
-            <div className="detailImg">
-              <img
-                alt="sliderImg"
-                src={preview.length ? preview[0].image_url1 : null}
-              />
-            </div>
-            <div className="detailImg">
-              <img
-                alt="sliderImg"
-                src={preview.length ? preview[0].image_url2 : null}
-              />
-            </div>
-            <div className="detailImg">
-              <img
-                alt="sliderImg"
-                src={preview.length ? preview[0].image_url3 : null}
-              />
-            </div>
-            <div className="detailImg">
-              <img
-                alt="sliderImg"
-                src={preview.length ? preview[0].image_url4 : null}
-              />
-            </div>
+            {preview.map((_, i) => {
+              return (
+                <div className="detailImg" key={i}>
+                  <img
+                    alt="sliderImg"
+                    src={preview.length && preview[i].image__image_url}
+                  />
+                </div>
+              );
+            })}
           </Slider>
         </div>
+        + .
         <div className="detailReview">
           <p className="detailScore">
             <span>리뷰평점 5.0</span>&nbsp;
             <span>★★★★★</span>
           </p>
           <div className="detailRevImg">
-            {review.slice(0, 6).map((rev, i) => {
+            {review.slice(0, 6).map((_, i) => {
               return (
                 <div className="revImg" key={i}>
                   <img
                     alt="revImg"
-                    src={review.length ? review[i].image_url : null}
+                    src={review.length && review[i].image_url}
                   />
                 </div>
               );
@@ -105,15 +90,14 @@ class Detail extends React.Component {
           <div
             className="detailInfo"
             dangerouslySetInnerHTML={
-              html.length ? { __html: html[0].detail_html } : null
+              html.length && { __html: html[0].product_detail__detail_html }
             }
           />
         </div>
-        {/* <DetailNav /> DetailNav 컴포넌트 추가 후, 주석 삭제*/}
         <Footer />
       </div>
     );
   }
 }
 
-export default withRouter(Detail);
+export default Detail;

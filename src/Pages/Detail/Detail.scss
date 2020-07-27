@@ -17,15 +17,18 @@ $slick-opacity-not-active: 0.5 !default;
     padding-left: 90px;
     padding-right: 440px;
     overflow: hidden;
+
     .detailImg {
       height: 100vh;
       overflow: hidden;
+
       img {
         margin: 0 auto;
         min-width: 750px;
         max-height: 768px;
         object-fit: contain;
       }
+
       &:focus {
         outline: none;
       }
@@ -36,35 +39,43 @@ $slick-opacity-not-active: 0.5 !default;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
     .detailScore {
       padding: 95px 0 44px;
+
       span {
         font-size: 24px;
-      }
-      span:nth-child(2) {
-        font-size: 28px;
+
+        &:nth-child(2) {
+          font-size: 28px;
+        }
       }
     }
+
     .detailRevImg {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       .revImg {
         width: 127px;
         height: 127px;
         margin-right: 20px;
         background: yellowgreen;
+
+        &:nth-child(6) {
+          margin-right: 0;
+        }
+
         img {
           max-width: 140px;
           max-height: 140px;
           object-fit: fill;
         }
       }
-      .revImg:nth-child(6) {
-        margin-right: 0;
-      }
     }
   }
+
   .detailInfo {
     padding-bottom: 120px;
   }

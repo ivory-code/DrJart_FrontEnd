@@ -15,6 +15,7 @@ class MainStory extends React.Component {
       slidesToScroll: 1,
     };
     const { mainData } = this.props;
+
     return (
       <div className="MainStory">
         <div className="mainStory">
@@ -37,16 +38,18 @@ class MainStory extends React.Component {
             {mainData.slice(0, 11).map((story, i) => {
               return (
                 <div className="storyProContent" key={i}>
-                  <img alt="storyPro01" src={story.image_url} />
+                  <img alt="storyPro01" src={story.main_image_url} />
                   <div className="storyProInfo">
                     <p className="storyProTitle">{story.name}</p>
                     <p className="storyProDate">
-                      <span>{story.tag}</span>
+                      <span>{story.product_detail__tag}</span>
                     </p>
                   </div>
                   <div className="storyProItem">
                     <p className="itemName">
-                      <span>{story.price.toLocaleString()}</span>
+                      <span>
+                        {story.product_detail__price.toLocaleString()}
+                      </span>
                     </p>
                   </div>
                 </div>
