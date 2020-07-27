@@ -23,7 +23,7 @@ class Main extends React.Component {
   }
 
   getMainProduct = () => {
-    fetch(`http://${API_URL}/product/main`, {
+    fetch(`${API_URL}/product/main`, {
       method: "GET",
     })
       .then((res) => res.json())

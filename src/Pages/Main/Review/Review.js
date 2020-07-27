@@ -15,7 +15,7 @@ class Review extends React.Component {
   }
 
   getMainProduct = () => {
-    fetch(`http://${API_URL}/product/main`, {
+    fetch(`${API_URL}/product/main`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -37,7 +37,7 @@ class Review extends React.Component {
               <div className="reviewContent" key={i}>
                 <img
                   alt="review01"
-                  src={review.length ? review[i].image_url : null}
+                  src={review.length && review[i].image_url}
                 />
                 <div className="reviewInfo">
                   <p className="reviewTitle">
@@ -54,7 +54,7 @@ class Review extends React.Component {
                 <div className="reviewItem">
                   <img
                     alt="reviewItem01"
-                    src={data.length ? data[i].image_url : null}
+                    src={data.length && data[i].image_url}
                   />
                   <p className="itemName">{el.skintype__name}</p>
                 </div>

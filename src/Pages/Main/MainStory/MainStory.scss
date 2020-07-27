@@ -165,12 +165,12 @@
 
         &.On {
           transform: translateY(-60%);
-          transition: all 0.2s ease-in-out;
+          transition: transform 0.2s ease-in-out;
         }
 
         &.Off {
           transform: translateY(140%);
-          transition: all 0.2s ease-in-out;
+          transition: transform 0.2s ease-in-out;
         }
       }
     }
