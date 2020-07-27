@@ -31,17 +31,17 @@ class Each extends React.Component {
     const { isHovered } = this.state;
     const {
       name,
-      image_url,
-      fleg_new,
-      fleg_gift,
-      fleg_best,
-      fleg_sale,
-      tag,
-      price_sale,
-      price,
+      main_image_url,
+      flag__flag_new,
+      flag__flag_gift,
+      flag__flag_best,
+      flag__flag_sale,
+      product_detail__tag,
+      product_detail__price_sale,
+      product_detail__price,
       id,
     } = this.props.data;
-    const isSale = price_sale !== 0;
+    const isSale = product_detail__price_sale !== 0;
     return (
       <div
         className="Each"
@@ -64,23 +64,25 @@ class Each extends React.Component {
                 className="product"
                 ref={this.imgRef}
                 src="/images/preview.gif"
-                data-src={image_url}
+                data-src={main_image_url}
               />
             </div>
             <div className="productTag">
-              <span className={fleg_new ? "NEW" : "NEWOff"}>{fleg_new}</span>
-              <span className={fleg_best ? "BEST" : "BESTOff"}>
-                {fleg_best}
+              <span className={flag__flag_new ? "NEW" : "NEWOff"}>
+                {flag__flag_new}
               </span>
-              <span className={fleg_gift ? "GIFT" : "GIFTOff"}>
-                {fleg_gift}
+              <span className={flag__flag_best ? "BEST" : "BESTOff"}>
+                {flag__flag_best}
               </span>
-              <span className={fleg_sale ? "SALE" : "SALEOff"}>
-                {fleg_sale}
+              <span className={flag__flag_gift ? "GIFT" : "GIFTOff"}>
+                {flag__flag_gift}
+              </span>
+              <span className={flag__flag_sale ? "SALE" : "SALEOff"}>
+                {flag__flag_sale}
               </span>
             </div>
             <div className="productInfo">
-              <p className="msg">{tag}</p>
+              <p className="msg">{product_detail__tag}</p>
               <p className="title">{name}</p>
               <div className="price">
                 <p
@@ -89,16 +91,16 @@ class Each extends React.Component {
                   }
                 >
                   {isSale
-                    ? price.toLocaleString()
-                    : price_sale.toLocaleString()}
+                    ? product_detail__price.toLocaleString()
+                    : product_detail__price_sale.toLocaleString()}
                   원
                 </p>
                 <p className="productInfoPrice">
-                  {price ? (
+                  {product_detail__price ? (
                     isSale ? (
-                      `${price_sale.toLocaleString()}원`
+                      `${product_detail__price_sale.toLocaleString()}원`
                     ) : (
-                      `${price.toLocaleString()}원`
+                      `${product_detail__price.toLocaleString()}원`
                     )
                   ) : (
                     <span className="productOutofStock">일시품절</span>

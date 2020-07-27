@@ -26,53 +26,57 @@ class DetailNav extends React.Component {
   render() {
     const { isWishBtnHovered, isCartBtnHovered, count } = this.state;
     const {
-      newFlag,
-      bestFlag,
-      giftFlag,
-      saleFlag,
-      title,
-      tag,
-      price,
-      salePrice,
+      flag__flag_new,
+      flag__flag_best,
+      flag__flag_gift,
+      flag__flag_sale,
+      name,
+      product_detail__tag,
+      product_detail__price,
+      product_detail__price_sale,
     } = this.props.location.state;
     const { scrollTop } = this.props;
-    const isSale = salePrice !== 0;
-    const saleprice = salePrice * count;
-    const normalprice = price * count;
+    const isSale = product_detail__price_sale !== 0;
+    const saleprice = product_detail__price_sale * count;
+    const normalprice = product_detail__price * count;
     return (
       <>
         <div className="DetailNav">
           <div className="detailNavBar">
             <div className="detailPrdInfo">
               <div className="flag">
-                <span className={newFlag ? "NEW" : "NEWOff"}>{newFlag}</span>
-                <span className={bestFlag ? "BEST" : "BESTOff"}>
-                  {bestFlag}
+                <span className={flag__flag_new ? "NEW" : "NEWOff"}>
+                  {flag__flag_new}
                 </span>
-                <span className={giftFlag ? "GIFT" : "GIFTOff"}>
-                  {giftFlag}
+                <span className={flag__flag_best ? "BEST" : "BESTOff"}>
+                  {flag__flag_best}
                 </span>
-                <span className={saleFlag ? "SALE" : "SALEOff"}>
-                  {saleFlag}
+                <span className={flag__flag_gift ? "GIFT" : "GIFTOff"}>
+                  {flag__flag_gift}
+                </span>
+                <span className={flag__flag_sale ? "SALE" : "SALEOff"}>
+                  {flag__flag_sale}
                 </span>
               </div>
-              <div className="detailPrdTitle">{title}</div>
-              <div className="detailPrdTag">{tag}</div>
+              <div className="detailPrdTitle">{name}</div>
+              <div className="detailPrdTag">{product_detail__tag}</div>
               <div className="detailPrice">
                 <p
                   className={
                     isSale ? "detailPrdSalePriceOn" : "detailPrdSalePriceOff"
                   }
                 >
-                  {isSale ? price.toLocaleString() : salePrice.toLocaleString()}
+                  {isSale
+                    ? product_detail__price.toLocaleString()
+                    : product_detail__price_sale.toLocaleString()}
                   원
                 </p>
                 <p className="detailPrdInfoPrice">
-                  {price ? (
+                  {product_detail__price ? (
                     isSale ? (
-                      `${salePrice.toLocaleString()}원`
+                      `${product_detail__price_sale.toLocaleString()}원`
                     ) : (
-                      `${price.toLocaleString()}원`
+                      `${product_detail__price.toLocaleString()}원`
                     )
                   ) : (
                     <span className="detailPrdOutofStock">일시품절</span>
@@ -180,9 +184,9 @@ class DetailNav extends React.Component {
         </div>
         {scrollTop > 650 ? (
           <FloatingNav
-            title={title}
-            price={price}
-            salePrice={salePrice}
+            title={name}
+            price={product_detail__price}
+            salePrice={product_detail__price_sale}
             count={count}
             handleCount={this.handleCount}
           />
