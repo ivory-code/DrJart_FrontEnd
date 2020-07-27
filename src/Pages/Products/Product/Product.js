@@ -38,15 +38,16 @@ class Product extends React.Component {
     const { productDatas } = this.state;
     const { value } = e.target;
     const priceObj = {
-      "낮은 금액 순": "price",
-      "높은 금액 순": "price",
-      // "인기 순": "comments", API 데이터 들어오면 추가 예정
-      // "신상품 순": "date", API 데이터 들어오면 추가 예정
+      "낮은 금액 순": "product_detail__price",
+      "높은 금액 순": "product_detail__price",
+      "인기 순": "star__star_5",
+      "신상품 순": "created",
     };
-
     let newData = productDatas.sort((a, b) => {
       if (value === "낮은 금액 순") {
         return a[priceObj[value]] - b[priceObj[value]];
+      } else if (value === "신상품 순") {
+        return new Date(b.created).getTime() - new Date(a.created).getTime();
       }
       return b[priceObj[value]] - a[priceObj[value]];
     });
