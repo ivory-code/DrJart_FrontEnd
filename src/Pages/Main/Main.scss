@@ -127,10 +127,12 @@ $slick-opacity-not-active: 0.5 !default;
   }
 
   .bestProContainer {
+    padding: 0 110px 80px 200px;
+
     .bestProTitleWrap {
       min-width: 1070px;
+      padding-top: 80px;
       height: 155px;
-      padding: 80px 60px 0 150px;
       margin: 0 auto;
       text-align: center;
 
@@ -150,10 +152,12 @@ $slick-opacity-not-active: 0.5 !default;
   }
 
   .onlineContainer {
+    padding: 0 110px 80px 200px;
+
     .onlineTitleWrap {
       min-width: 1070px;
+      padding-top: 80px;
       height: 155px;
-      padding: 80px 60px 0 150px;
       margin: 0 auto;
       text-align: center;
 
@@ -205,6 +209,7 @@ $slick-opacity-not-active: 0.5 !default;
   padding: 0;
   margin: 0;
   width: 100%;
+
   li {
     position: relative;
     display: inline-block;
@@ -215,6 +220,7 @@ $slick-opacity-not-active: 0.5 !default;
     padding: 0;
     overflow: hidden;
     cursor: pointer;
+
     button {
       border: 0;
       background: transparent;
@@ -227,14 +233,17 @@ $slick-opacity-not-active: 0.5 !default;
       color: transparent;
       padding: 5px;
       cursor: pointer;
+
       &:hover,
       &:focus {
         outline: none;
+
         &:before {
           opacity: $slick-opacity-on-hover;
           color: white;
         }
       }
+
       &:before {
         position: absolute;
         top: 0;
@@ -252,6 +261,7 @@ $slick-opacity-not-active: 0.5 !default;
         -moz-osx-font-smoothing: grayscale;
       }
     }
+
     &.slick-active button:before {
       color: $slick-dot-color-active;
       opacity: $slick-opacity-default;

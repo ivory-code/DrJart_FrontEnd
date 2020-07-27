@@ -54,34 +54,30 @@
           div {
             font-size: 15px;
             text-align: center;
+            animation: dropDown;
+            animation-duration: 0.4s;
+            animation-iteration-count: initial;
+            animation-timing-function: ease;
           }
 
-          .selectSingle {
-            height: 84px;
-            padding: 0 10px;
-            border: 1px solid #eee;
-            line-height: 40px;
-            background-color: white;
-            position: fixed;
-            top: 107px;
-
-            p {
-              text-align: center;
-              &:hover {
-                color: #555;
-              }
+          @keyframes dropDown {
+            0% {
+              opacity: 0;
+              transform: scaleY(0);
+              transform-origin: 0% 0%;
             }
 
-            .flesh {
-              color: #222;
-              &:hover {
-                color: #222;
-              }
+            100% {
+              opacity: 1;
+              transform: scaleY(1);
+              transform-origin: 0% 0%;
             }
           }
+
           &:hover {
             color: #555;
           }
+
           &:focus {
             color: #555;
             font-weight: 900;
@@ -95,7 +91,6 @@
         .navSingle {
           .selectSol {
             width: 120px;
-            height: 82px;
             margin: 0 auto;
             padding: 0 10px;
             border: 1px solid #eee;
@@ -103,6 +98,18 @@
             background-color: white;
             position: absolute;
             top: 107px;
+            p {
+              &:hover {
+                color: #555;
+              }
+            }
+
+            .flesh {
+              color: #222;
+              &:hover {
+                color: #222;
+              }
+            }
           }
         }
 
