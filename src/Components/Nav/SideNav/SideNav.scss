@@ -1,5 +1,6 @@
 .SideNav {
   transition: transform 0.5s;
+
   .sideNavWrap {
     display: flex;
     justify-content: center;
@@ -12,6 +13,7 @@
     border-right: 1px solid #dcdcdc;
     background-color: white;
     z-index: 9991;
+
     .sideNavMenu {
       width: 89px;
       height: 100%;
@@ -22,6 +24,7 @@
       align-items: center;
       overflow: hidden;
       z-index: 9992;
+
       .sideGoHome {
         width: 98px;
         height: 160px;
@@ -29,10 +32,12 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
+
         .plusIcon {
           width: 26px;
           height: 26px;
           cursor: pointer;
+
           img {
             max-width: 100%;
             max-height: 100%;
@@ -40,6 +45,7 @@
           }
         }
       }
+
       .sideMenu {
         height: 18px;
         display: flex;
@@ -47,11 +53,13 @@
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
+
         span {
           width: 24px;
           border: 0.5px solid #555;
         }
       }
+
       .sideBottom {
         width: 25px;
         height: 210px;
@@ -59,12 +67,14 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+
         .myInfo {
           width: 25px;
           height: 46px;
           display: flex;
           justify-content: center;
           align-items: flex-start;
+
           img {
             max-width: 100%;
             max-height: 100%;
@@ -72,6 +82,7 @@
             cursor: pointer;
           }
         }
+
         .sideIcon {
           width: 25px;
           height: 210px;
@@ -79,12 +90,14 @@
           flex-direction: column;
           justify-content: space-between;
           align-items: center;
+
           img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
             cursor: pointer;
           }
+
           .myProfile {
             visibility: hidden;
           }
@@ -92,15 +105,18 @@
       }
     }
   }
+
   .hideNav {
     width: 270px;
     height: 100%;
     background-color: white;
+    border-left: 1px solid white;
     position: fixed;
     top: 0;
     left: 89px;
-    z-index: 9990;
+    z-index: 9992;
     animation: activeMenu 0.4s ease;
+
     @keyframes activeMenu {
       0% {
         opacity: 0;
@@ -111,6 +127,7 @@
         left: 89px;
       }
     }
+
     .hideNavWrap {
       width: 270px;
       height: 100%;
@@ -118,36 +135,44 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
       div {
         width: 100%;
       }
+
       .logoWrap {
         height: 13%;
+
         img {
           width: 130px;
           height: auto;
           object-fit: contain;
         }
       }
+
       .menuList {
         height: 50%;
         padding-top: 33px;
+
         li {
           font-size: 22px;
           font-weight: 600;
           color: #999;
           margin-bottom: 16px;
           cursor: pointer;
+
           img {
             width: 140px;
             height: auto;
             margin-top: 45px;
           }
         }
-        li:nth-child(5),
-        li:nth-child(6) {
+
+        &:nth-child(5),
+        &:nth-child(6) {
           margin-bottom: 0;
         }
+
         .noticeList {
           width: 140px;
           height: 74px;
@@ -156,17 +181,20 @@
           flex-direction: column;
           justify-content: space-between;
           align-items: flex-start;
+
           p {
             font-size: 13px;
             line-height: 10px;
           }
         }
       }
+
       .bottomList {
         height: 25%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
         .mergeMem {
           width: 140px;
           height: 30px;
@@ -175,11 +203,13 @@
           color: #555;
           cursor: pointer;
         }
+
         .bottomWrap {
           .lang {
             display: flex;
             justify-content: flex-start;
             align-items: center;
+
             li {
               margin: 20px 0;
               padding: 0 10px;
@@ -187,18 +217,22 @@
               color: #999;
               border-right: 1px solid #ddd;
               cursor: pointer;
+
               &:hover {
                 color: #222;
               }
             }
+
             li:nth-child(1) {
               padding-left: 0;
               color: #222;
             }
+
             li:nth-child(3) {
               border-right: 0;
             }
           }
+
           img {
             width: 140px;
             height: auto;
@@ -209,9 +243,11 @@
       }
     }
   }
+
   .hideNavOff {
     display: none;
   }
+
   .overlay {
     .wrapOthers {
       width: 100%;
@@ -220,73 +256,138 @@
       position: fixed;
       z-index: 9989;
     }
+
     .wrapOff {
       display: none;
     }
   }
+
   .asideBtn {
     width: 60px;
     z-index: 9999;
+
     .chatBtn {
       display: flex;
       flex-direction: column-reverse;
       justify-content: space-between;
       cursor: pointer;
-      div {
+
+      .offchat,
+      .naverChat,
+      .kakaoChat,
+      .webChat {
         position: fixed;
         bottom: 30px;
         right: 30px;
         width: 60px;
         height: 60px;
         background-color: #ccc;
-        border-radius: 100%;
-        transition: transform 0.5s;
-      }
-      .offchat {
         background-image: url(/images/offchat.png);
-        &:hover {
-          background-color: #222;
-          &:active {
-            background-image: url(/images/onchat.png);
+        border-radius: 100%;
+        transition: transform 0.3s;
+      }
+
+      &:focus {
+        .offchat {
+          background-image: url(/images/offchat.png);
+
+          &:hover {
+            background-color: #222;
+
+            &:active {
+              background-image: url(/images/onchat.png);
+            }
           }
         }
-      }
-      &:focus {
+
         .naverChat {
           background-image: url(/images/offnaver.png);
           transform: translate(0, -225px);
+
           &:hover {
             background-image: url(/images/onnaver.png);
           }
         }
+
         .kakaoChat {
           background-image: url(/images/offkakao.png);
           transform: translate(0, -150px);
+
           &:hover {
             background-image: url(/images/onkakao.png);
           }
         }
+
         .webChat {
           background-image: url(/images/offwebChat.png);
           transform: translate(0, -75px);
+
           &:hover {
             background-image: url(/images/onwebChat.png);
+          }
+        }
+      }
+
+      .scroll {
+        transform: translate(0, -235px);
+      }
+
+      &:focus {
+        .scroll:nth-child(1) {
+          background-image: url(/images/offwebChat.png);
+          transform: translate(0, -310px);
+
+          &:hover {
+            background-image: url(/images/onwebChat.png);
+          }
+        }
+
+        .scroll:nth-child(2) {
+          background-image: url(/images/offnaver.png);
+          transform: translate(0, -460px);
+
+          &:hover {
+            background-image: url(/images/onnaver.png);
+          }
+        }
+
+        .scroll:nth-child(3) {
+          background-image: url(/images/offkakao.png);
+          transform: translate(0, -385px);
+
+          &:hover {
+            background-image: url(/images/onkakao.png);
+          }
+        }
+
+        .scroll:nth-child(4) {
+          background-image: url(/images/offchat.png);
+
+          &:hover {
+            background-color: #222;
+
+            &:active {
+              background-image: url(/images/onchat.png);
+            }
           }
         }
       }
     }
   }
 }
+
 @media screen and (max-height: 900px) {
   .noticeList {
     visibility: hidden;
   }
 }
+
 @media screen and (max-height: 650px) {
   .mergeMem {
     visibility: hidden;
   }
 }
+
 @media screen and (max-height: 560px) {
   .bottomList {
     visibility: hidden;

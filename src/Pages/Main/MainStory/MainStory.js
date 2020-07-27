@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "./MainStory.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 class MainStory extends React.Component {
   render() {
     const settings = {
@@ -14,6 +15,7 @@ class MainStory extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
     };
+
     const { mainDatas } = this.props;
 
     return (
@@ -48,4 +50,5 @@ class MainStory extends React.Component {
     );
   }
 }
+
 export default MainStory;
