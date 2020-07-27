@@ -65,6 +65,7 @@ class Each extends React.Component {
             <div className="productTag">
               <span className={flag__flag_new ? "NEW" : "NEWOff"}>
                 {flag__flag_new}
+<<<<<<< HEAD
               </span>
               <span className={flag__flag_best ? "BEST" : "BESTOff"}>
                 {flag__flag_best}
@@ -72,6 +73,15 @@ class Each extends React.Component {
               <span className={flag__flag_gift ? "GIFT" : "GIFTOff"}>
                 {flag__flag_gift}
               </span>
+=======
+              </span>
+              <span className={flag__flag_best ? "BEST" : "BESTOff"}>
+                {flag__flag_best}
+              </span>
+              <span className={flag__flag_gift ? "GIFT" : "GIFTOff"}>
+                {flag__flag_gift}
+              </span>
+>>>>>>> master
               <span className={flag__flag_sale ? "SALE" : "SALEOff"}>
                 {flag__flag_sale}
               </span>

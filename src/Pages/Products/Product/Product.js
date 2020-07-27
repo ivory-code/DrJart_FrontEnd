@@ -43,7 +43,6 @@ class Product extends React.Component {
       "인기 순": "star__star_5",
       "신상품 순": "created",
     };
-
     let newData = productDatas.sort((a, b) => {
       if (value === "낮은 금액 순") {
         return a[priceObj[value]] - b[priceObj[value]];
