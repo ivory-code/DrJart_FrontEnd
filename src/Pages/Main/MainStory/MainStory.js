@@ -1,9 +1,9 @@
 import React from "react";
+import Each from "../../Products/Product/Each.js";
 import Slider from "react-slick";
 import "./MainStory.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 class MainStory extends React.Component {
   render() {
     const settings = {
@@ -14,7 +14,7 @@ class MainStory extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
     };
-    const { mainData } = this.props;
+    const { mainDatas } = this.props;
     return (
       <div className="MainStory">
         <div className="mainStory">
@@ -33,24 +33,13 @@ class MainStory extends React.Component {
           <div className="storyVideo"></div>
         </div>
         <div className="storySlide">
+          <div className="todayPick">
+            <h3>Today Pick's</h3>
+            <p>닥터자르트가 추천하는 상품입니다.</p>
+          </div>
           <Slider {...settings}>
-            {mainData.slice(0, 11).map((story, i) => {
-              return (
-                <div className="storyProContent" key={i}>
-                  <img alt="storyPro01" src={story.image_url} />
-                  <div className="storyProInfo">
-                    <p className="storyProTitle">{story.name}</p>
-                    <p className="storyProDate">
-                      <span>{story.tag}</span>
-                    </p>
-                  </div>
-                  <div className="storyProItem">
-                    <p className="itemName">
-                      <span>{story.price.toLocaleString()}</span>
-                    </p>
-                  </div>
-                </div>
-              );
+            {mainDatas.slice(5, 10).map((story) => {
+              return <Each key={story.id} data={story} />;
             })}
           </Slider>
         </div>
@@ -58,5 +47,4 @@ class MainStory extends React.Component {
     );
   }
 }
-
 export default MainStory;
