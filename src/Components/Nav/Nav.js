@@ -36,7 +36,7 @@ class Nav extends React.Component {
               <h1 className="navMainCate">제품</h1>
             </Link>
             <ul className="navSubCate">
-              <Link to="/product/all">
+              <Link to="/product/">
                 <li>모든제품</li>
               </Link>
               <li

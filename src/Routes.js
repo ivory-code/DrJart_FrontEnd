@@ -5,6 +5,7 @@ import member3 from "./Pages/member/member3";
 import Product from "./Pages/Products/Product/Product.js";
 import Cart from "./Pages/Cart/Cart.js";
 import Main from "./Pages/Main/Main.js";
+import Detail from "./Pages/Detail/Detail.js";
 
 function Routes() {
   return (
