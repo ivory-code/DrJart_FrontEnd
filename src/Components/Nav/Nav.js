@@ -27,7 +27,9 @@ class Nav extends React.Component {
   };
 
   render() {
-    const { scrollTop, currentIndex } = this.props;
+    const { scrollTop } = this.props;
+    const { currentIndex } = this.state;
+
     return (
       <div className="Nav">
         <SideNav scrollTop={scrollTop} />

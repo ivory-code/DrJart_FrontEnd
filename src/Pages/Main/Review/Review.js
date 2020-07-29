@@ -9,6 +9,7 @@ class Review extends React.Component {
       review: [],
     };
   }
+
   componentDidMount() {
     this.getMainProduct();
   }
@@ -24,6 +25,7 @@ class Review extends React.Component {
         });
       });
   };
+
   render() {
     const { review } = this.state;
     const { data } = this.props;
@@ -53,7 +55,7 @@ class Review extends React.Component {
                 <div className="reviewItem">
                   <img
                     alt="reviewItem01"
-                    src={review.length && review[i].image_url}
+                    src={data.length && data[i].main_image_url}
                   />
                   <p className="itemName">{el.skintype__name}</p>
                 </div>
@@ -65,4 +67,5 @@ class Review extends React.Component {
     );
   }
 }
+
 export default Review;

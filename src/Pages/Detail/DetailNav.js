@@ -39,6 +39,7 @@ class DetailNav extends React.Component {
     const isSale = product_detail__price_sale !== 0;
     const saleprice = product_detail__price_sale * count;
     const normalprice = product_detail__price * count;
+
     return (
       <>
         <div className="DetailNav">

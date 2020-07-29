@@ -1,7 +1,9 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import "./Each.scss";
+
 const options = { threshold: 0.5 };
+
 class Each extends React.Component {
   constructor(props) {
     super(props);
@@ -10,10 +12,12 @@ class Each extends React.Component {
       isHovered: false,
     };
   }
+
   componentDidMount() {
     const observer = new IntersectionObserver(this.callback, options);
     observer.observe(this.imgRef.current);
   }
+
   callback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -22,6 +26,7 @@ class Each extends React.Component {
       }
     });
   };
+
   render() {
     const { isHovered } = this.state;
     const {
@@ -36,7 +41,8 @@ class Each extends React.Component {
       product_detail__price,
       id,
     } = this.props.data;
-    const isSale = price_sale !== 0;
+    const isSale = product_detail__price_sale !== 0;
+
     return (
       <div
         className="Each"
@@ -65,7 +71,6 @@ class Each extends React.Component {
             <div className="productTag">
               <span className={flag__flag_new ? "NEW" : "NEWOff"}>
                 {flag__flag_new}
-<<<<<<< HEAD
               </span>
               <span className={flag__flag_best ? "BEST" : "BESTOff"}>
                 {flag__flag_best}
@@ -73,15 +78,6 @@ class Each extends React.Component {
               <span className={flag__flag_gift ? "GIFT" : "GIFTOff"}>
                 {flag__flag_gift}
               </span>
-=======
-              </span>
-              <span className={flag__flag_best ? "BEST" : "BESTOff"}>
-                {flag__flag_best}
-              </span>
-              <span className={flag__flag_gift ? "GIFT" : "GIFTOff"}>
-                {flag__flag_gift}
-              </span>
->>>>>>> master
               <span className={flag__flag_sale ? "SALE" : "SALEOff"}>
                 {flag__flag_sale}
               </span>
@@ -136,4 +132,5 @@ class Each extends React.Component {
     );
   }
 }
+
 export default withRouter(Each);

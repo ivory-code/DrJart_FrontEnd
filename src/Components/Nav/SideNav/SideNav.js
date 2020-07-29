@@ -29,7 +29,9 @@ class SideNav extends React.Component {
           <div className="sideNavMenu">
             <ul className="sideGoHome">
               <li className="plusIcon">
-                <img alt="plus" src="/images/plusicon.png" />
+                <Link to="/main">
+                  <img alt="plus" src="/images/plusicon.png" />
+                </Link>
               </li>
             </ul>
             <ul className="sideMenu" onClick={handleNav}>
@@ -44,9 +46,13 @@ class SideNav extends React.Component {
                   alt="myInfo"
                   src="/images/myinfo.png"
                 />
-                <img className="myCart" alt="cart" src="/images/cart.png" />
+                <Link to="/cart">
+                  <img className="myCart" alt="cart" src="/images/cart.png" />
+                </Link>
                 <img className="search" alt="search" src="/images/search.png" />
-                <img className="login" alt="login" src="/images/login.png" />
+                <Link to="/signin">
+                  <img className="login" alt="login" src="/images/login.png" />
+                </Link>
               </li>
             </ul>
           </div>

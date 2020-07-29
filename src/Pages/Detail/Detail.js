@@ -1,7 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
 import Nav from "../../Components/Nav/Nav.js";
+import DetailNav from "./DetailNav.js";
 import Footer from "../../Components/Footer/Footer.js";
+import throttle from "../../Util/throttle.js";
 import API_URL from "../../Config.js";
 import "./Detail.scss";
 import "slick-carousel/slick/slick.css";
@@ -14,6 +16,7 @@ class Detail extends React.Component {
       preview: [],
       review: [],
       html: [],
+      scrollTop: 0,
     };
   }
 
@@ -29,7 +32,13 @@ class Detail extends React.Component {
           html: result.datas,
         });
       });
+    window.addEventListener("scroll", throttle(this.handleScroll, 100));
   }
+
+  handleScroll = (e) => {
+    const scrollTop = ("scroll", e.srcElement.scrollingElement.scrollTop);
+    this.setState({ scrollTop });
+  };
 
   render() {
     const settings = {
@@ -49,12 +58,11 @@ class Detail extends React.Component {
       autoplay: true,
       autoplaySpeed: 2000,
     };
-    const { preview, html, review } = this.state;
-    console.log(this.props);
+    const { preview, html, review, scrollTop } = this.state;
 
     return (
       <div className="Detail">
-        <Nav />
+        <Nav scrollTop={scrollTop} />
         <div className="detailWrap">
           <Slider {...settings}>
             {preview.map((_, i) => {
@@ -69,7 +77,6 @@ class Detail extends React.Component {
             })}
           </Slider>
         </div>
-        + .
         <div className="detailReview">
           <p className="detailScore">
             <span>리뷰평점 5.0</span>&nbsp;
@@ -90,10 +97,13 @@ class Detail extends React.Component {
           <div
             className="detailInfo"
             dangerouslySetInnerHTML={
-              html.length && { __html: html[0].product_detail__detail_html }
+              html.length
+                ? { __html: html[0].product_detail__detail_html }
+                : null
             }
-          />
+          ></div>
         </div>
+        <DetailNav scrollTop={scrollTop} />
         <Footer />
       </div>
     );

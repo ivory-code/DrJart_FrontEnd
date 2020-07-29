@@ -17,6 +17,7 @@ class FloatingNav extends React.Component {
     const isSale = salePrice !== 0;
     const saleprice = salePrice * count;
     const normalprice = price * count;
+
     return (
       <div className="floating">
         <div className="floatingTitle">{title}</div>
