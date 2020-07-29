@@ -1,10 +1,8 @@
 .SignIn {
-  position: relative;
   padding-left: 90px;
   padding-bottom: 120px;
 
-  .singinBox {
-    position: relative;
+  .signinBox {
     max-width: 980px;
     margin: 0 auto;
 
@@ -24,7 +22,7 @@
     }
   }
 
-  .loginCon {
+  .loginContainer {
     margin: 0 auto;
     padding-top: 50px;
     width: 420px;
@@ -103,8 +101,6 @@
             cursor: pointer;
 
             &.findId {
-              display: inline-block;
-              position: relative;
               margin-right: 15px;
               padding-right: 15px;
               border-right: 1px solid #999;
@@ -113,8 +109,6 @@
         }
 
         .loginBtnWrap {
-          position: relative;
-          width: 100%;
           margin-top: 25px;
 
           .btn-upper {
@@ -164,9 +158,6 @@
         }
 
         .signupBtnWrap {
-          position: relative;
-          width: 100%;
-
           .signupUpper {
             position: relative;
             height: 48px;
@@ -222,16 +213,21 @@
       height: 100%;
 
       .snsSign {
-        vertical-align: middle;
-        overflow: hidden;
-
         li {
-          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 48px;
           margin-bottom: 8px;
+          font-size: 14px;
+          color: #fff;
         }
 
         a {
-          display: block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: 100%;
           height: 48px;
           font-size: 14px;
@@ -240,47 +236,43 @@
         }
 
         .snsLoginImg {
-          display: inline-block;
+          position: absolute;
+          left: 1245px;
           margin-right: 10px;
           margin-left: -20px;
           width: 40px;
           height: 40px;
-          vertical-align: middle;
-
-          &.kakao {
-            background: url(/images/ico_loginSns.png) no-repeat 0 0;
-            background-size: 120px 38px;
-            background-position: -40px 0px;
-          }
 
           &.naver {
-            background: url(/images/ico_loginSns.png) no-repeat 0 0;
-            background-size: 120px 38px;
-            background-position: -80px 0px;
+            left: 1255px;
           }
 
-          &.facebook {
-            background: url(/images/ico_loginSns.png) no-repeat 0 0;
-            background-size: 120px 38px;
-          }
-        }
-
-        .snsLoginTitle {
-          font-size: 14px;
-          color: #fff;
-
-          &.kakao {
-            color: #000;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
           }
         }
 
-        .snsKatalk {
+        .kakao {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 48px;
           background-color: #f9e000;
+          font-size: 14px;
           overflow: hidden;
+
+          &:focus {
+            outline: none;
+          }
         }
 
-        .snsFabook {
-          background-color: #3c5a99;
+        .google {
+          justify-content: center;
+          width: 100%;
+          height: 48px;
         }
 
         .snsLine {
