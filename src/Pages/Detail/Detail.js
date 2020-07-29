@@ -50,7 +50,6 @@ class Detail extends React.Component {
       autoplaySpeed: 2000,
     };
     const { preview, html, review } = this.state;
-    console.log(this.props);
 
     return (
       <div className="Detail">
@@ -90,7 +89,9 @@ class Detail extends React.Component {
           <div
             className="detailInfo"
             dangerouslySetInnerHTML={
-              html.length && { __html: html[0].product_detail__detail_html }
+              html.length
+                ? { __html: html[0].product_detail__detail_html }
+                : null
             }
           />
         </div>
