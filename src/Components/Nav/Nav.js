@@ -27,7 +27,7 @@ class Nav extends React.Component {
   };
 
   render() {
-    const { scrollTop } = this.props;
+    const { scrollTop, currentIndex } = this.props;
     return (
       <div className="Nav">
         <SideNav scrollTop={scrollTop} />
@@ -46,11 +46,7 @@ class Nav extends React.Component {
                 onMouseLeave={() => this.mouseOffNav()}
               >
                 공식몰 단독 혜택
-                <div
-                  className={
-                    this.state.currentIndex === 1 ? "selectSol" : "offCate"
-                  }
-                >
+                <div className={currentIndex === 1 ? "selectSol" : "offCate"}>
                   <Link to="/product">
                     <p>수분 3종 혜택</p>
                   </Link>
@@ -65,11 +61,7 @@ class Nav extends React.Component {
                 onMouseLeave={() => this.mouseOffNav()}
               >
                 민감피부솔루션
-                <div
-                  className={
-                    this.state.currentIndex === 2 ? "selectSol" : "offCate"
-                  }
-                >
+                <div className={currentIndex === 2 ? "selectSol" : "offCate"}>
                   <Link to="/product">
                     <p>회복진정</p>
                   </Link>
@@ -114,11 +106,7 @@ class Nav extends React.Component {
                 onMouseLeave={() => this.mouseOffNav()}
               >
                 유형별
-                <div
-                  className={
-                    this.state.currentIndex === 3 ? "selectType" : "offCate"
-                  }
-                >
+                <div className={currentIndex === 3 ? "selectType" : "offCate"}>
                   <Link to="/product">
                     <p>토너/미스트</p>
                   </Link>
@@ -163,11 +151,7 @@ class Nav extends React.Component {
                 onMouseLeave={() => this.mouseOffNav()}
               >
                 라인별
-                <div
-                  className={
-                    this.state.currentIndex === 4 ? "selectLine" : "offCate"
-                  }
-                >
+                <div className={currentIndex === 4 ? "selectLine" : "offCate"}>
                   <Link to="/product">
                     <p>바이옴</p>
                   </Link>
