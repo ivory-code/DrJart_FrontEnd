@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./SideNav.scss";
 
 class SideNav extends React.Component {
@@ -20,6 +21,7 @@ class SideNav extends React.Component {
 
   render() {
     const { navOn } = this.state;
+    const { scrollTop } = this.props;
     const { handleNav } = this;
 
     return (
@@ -28,7 +30,9 @@ class SideNav extends React.Component {
           <div className="sideNavMenu">
             <ul className="sideGoHome">
               <li className="plusIcon">
-                <img alt="plus" src="/images/plusicon.png" />
+                <Link to="/main">
+                  <img alt="plus" src="/images/plusicon.png" />
+                </Link>
               </li>
             </ul>
             <ul className="sideMenu" onClick={handleNav}>
@@ -43,9 +47,13 @@ class SideNav extends React.Component {
                   alt="myInfo"
                   src="/images/myinfo.png"
                 />
-                <img className="myCart" alt="cart" src="/images/cart.png" />
+                <Link to="/cart">
+                  <img className="myCart" alt="cart" src="/images/cart.png" />
+                </Link>
                 <img className="search" alt="search" src="/images/search.png" />
-                <img className="login" alt="login" src="/images/login.png" />
+                <Link to="/signin">
+                  <img className="login" alt="login" src="/images/login.png" />
+                </Link>
               </li>
             </ul>
           </div>
@@ -88,10 +96,10 @@ class SideNav extends React.Component {
         </div>
         <aside className="asideBtn">
           <button className="chatBtn">
-            <div className="naverChat" />
-            <div className="kakaoChat" />
-            <div className="webChat" />
-            <div className="offchat" />
+            <div className={`naverChat ${scrollTop > 650 ? "scroll" : ""}`} />
+            <div className={`kakaoChat ${scrollTop > 650 ? "scroll" : ""}`} />
+            <div className={`webChat ${scrollTop > 650 ? "scroll" : ""}`} />
+            <div className={`offchat ${scrollTop > 650 ? "scroll" : ""}`} />
           </button>
         </aside>
       </div>

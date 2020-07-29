@@ -20,9 +20,11 @@ $slick-opacity-not-active: 0.5 !default;
     .slideImg {
       position: relative;
       overflow: hidden;
+
       &:focus {
         outline: none;
       }
+
       .slideTextWrap {
         position: absolute;
         top: 30%;
@@ -72,6 +74,7 @@ $slick-opacity-not-active: 0.5 !default;
     .slideImg {
       height: 100%;
       position: relative;
+
       &:focus {
         outline: none;
       }
