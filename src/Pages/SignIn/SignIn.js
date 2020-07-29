@@ -105,7 +105,7 @@ class Login extends React.Component {
         <SideNav />
         <div className="SignIn">
           <div className="signinBox">
-            <div className="pageTitArea">
+            <div className="pageTitleArea">
               <img
                 alt="login"
                 src="https://image.drjart.com/front/ko/images/util/icon_loginJoin.gif"
@@ -217,12 +217,6 @@ class Login extends React.Component {
               <div className="snsLogin">
                 <ul className="snsSign">
                   <li className="snsKatalk">
-                    <span className="snsLoginImg kakaotalk">
-                      <img
-                        alt="kakao"
-                        src="https://i0.wp.com/forhappywomen.com/wp-content/uploads/2018/11/%EC%82%B0%EB%B6%80%EC%9D%B8%EA%B3%BC-%ED%8F%AC%ED%95%B4%ED%94%BC%EC%9A%B0%EB%A8%BC-%EB%AC%B8%EC%9D%98-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%8C%EB%9F%AC%EC%8A%A4%EC%B9%9C%EA%B5%AC-%EB%B2%84%ED%8A%BC.png?resize=586%2C586&ssl=1"
-                      />
-                    </span>
                     <KakaoLogin
                       className="kakao"
                       buttonText="카카오톡으로 로그인"
@@ -231,15 +225,7 @@ class Login extends React.Component {
                       onFailure={this.responseFail}
                     />
                   </li>
-                  <li className="snsLine">
-                    <span className="snsLoginImg naver">
-                      <img
-                        alt="naver"
-                        src="https://lh3.googleusercontent.com/proxy/dLu-lMirG0ASNSHz0wdlGbhpfEb_blCptAjFbF-Rqivu06srDWPA3JCwkXfN3gILJzH4_bNEVVRVA2hPV08nH9EA7Eqt3WhwD-TtHX7cJTO3kLVCQfOCh_WLRXsTPc7nKTcw8cTRWtsuaKGJnQKWX28Yrz17NQsVujDRbJXg5oJ-ON88wBAyQ1HCnPaulNxePec9r3Lk4HjnFHhjJdDJf414GM2nxh16sQUDZAryVtzdrEfQoRlvZeOIhs4"
-                      />
-                    </span>
-                    네이버로 로그인
-                  </li>
+                  <li className="snsLine">네이버로 로그인</li>
                   <GoogleLogin
                     className="google"
                     buttonText="구글로 로그인"
