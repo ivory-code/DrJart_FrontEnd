@@ -14,19 +14,15 @@ $slick-opacity-not-active: 0.5 !default;
 
 .Detail {
   .detailWrap {
-    padding-left: 90px;
     padding-right: 440px;
-    overflow: hidden;
 
     .detailImg {
       height: 100vh;
-      overflow: hidden;
 
       img {
         margin: 0 auto;
-        min-width: 750px;
-        max-height: 768px;
-        object-fit: contain;
+        min-height: 768px;
+        height: 100vh;
       }
 
       &:focus {
