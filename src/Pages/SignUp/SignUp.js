@@ -29,11 +29,7 @@ class SignUp extends React.Component {
   handleAllAgree = (e) => {
     e.preventDefault();
     const { agreeAll } = this.state;
-    if (agreeAll === false) {
-      this.setState({ agreeAll: true });
-    } else {
-      this.setState({ agreeAll: false });
-    }
+    this.setState({ agreeAll: !agreeAll });
   };
 
   handleOption = (e) => {
@@ -45,14 +41,13 @@ class SignUp extends React.Component {
   handleSignUp = (e) => {
     e.preventDefault();
     const { userId, userCheckPw, userMailHead, userMailTail } = this.state;
-    const fetchState = {
-      user: userId,
-      password: userCheckPw,
-      email: `${userMailHead}@${userMailTail}`,
-    };
     const fetchInfo = {
       method: "POST",
-      body: JSON.stringify(fetchState),
+      body: JSON.stringify({
+        user: userId,
+        password: userCheckPw,
+        email: `${userMailHead}@${userMailTail}`,
+      }),
     };
     if (
       userCheckPw.length >= 4 &&
