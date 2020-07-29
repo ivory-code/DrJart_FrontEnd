@@ -1,0 +1,425 @@
+.SignUp {
+  margin: 0 60px 0 150px;
+
+  .upContainer {
+    position: relative;
+    min-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .upHead {
+      padding: 50px 0 50px;
+
+      .joinTitle {
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        line-height: 48px;
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: -0.5px;
+        color: #222;
+      }
+    }
+
+    .upInputInfo {
+      min-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h3 {
+        padding: 20px 0;
+        font-size: 16px;
+      }
+
+      .inputWrap {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 8px;
+        color: #111;
+        background: #fff;
+        font-size: 14px;
+        outline: none;
+        display: flex;
+        justify-content: space-between;
+
+        .inputId {
+          width: 80%;
+          height: 40px;
+          padding: 0 16px;
+          background: #fff;
+          border: 1px solid #e5e5e5;
+          font-size: 14px;
+          color: #111;
+          outline: none;
+        }
+
+        .btnWrap2 {
+          position: relative;
+          width: 19%;
+          height: 130px;
+          border-radius: 1px;
+          border-color: white;
+
+          .btnUpper2 {
+            border-radius: 5px;
+            position: relative;
+
+            .blackBg2 {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background-color: white;
+            }
+
+            .whiteBg2 {
+              position: absolute;
+              background-color: grey;
+              width: 0;
+              height: 100%;
+              z-index: 10;
+              transition: width 0.3s;
+
+              &.hover {
+                width: 100%;
+              }
+            }
+
+            .loginBtn2 {
+              position: relative;
+              background-color: transparent;
+              padding: 10px;
+              width: 100%;
+              z-index: 11;
+              border: 1px solid #e5e5e5;
+              color: black;
+              border-radius: 0px;
+              cursor: pointer;
+              outline: none;
+
+              &.hover {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+
+      .memberInfo {
+        width: 100%;
+
+        .inputStyle {
+          width: 100%;
+          height: 40px;
+          margin-bottom: 8px;
+          padding: 0 16px;
+          border: 1px solid #e5e5e5;
+          background: #fff;
+          font-size: 14px;
+          color: #111;
+          outline: none;
+        }
+      }
+
+      .error {
+        color: red;
+        font-size: 12px;
+        margin-left: 8px;
+        margin-bottom: 8px;
+      }
+
+      .errorOff {
+        display: none;
+      }
+
+      .emailDivision {
+        .inputEmail {
+          display: flex;
+          justify-content: space-between;
+
+          .inputText {
+            width: 30%;
+
+            input {
+              width: 100%;
+              height: 40px;
+              padding: 0 8px;
+              line-height: 40px;
+              color: #555;
+              text-indent: 4px;
+              border: 1px solid #dcdcdc;
+              outline: none;
+            }
+          }
+
+          .at {
+            width: 5%;
+            text-align: center;
+            margin-top: 8px;
+          }
+        }
+
+        .error {
+          color: red;
+          font-size: 12px;
+          margin-left: 8px;
+          margin-bottom: 8px;
+        }
+        .errorOff {
+          display: none;
+        }
+
+        .emailSelect {
+          width: 34%;
+          height: 40px;
+          margin-left: 1%;
+          margin-bottom: 8px;
+
+          .pickMail {
+            width: 100%;
+            height: 40px;
+            background: url("/images/arr_selectB.png");
+            background-repeat: no-repeat;
+            background-position: 97% center;
+            border: 1px solid #e5e5e5;
+            line-height: 38px;
+            padding-right: 30px;
+            text-align: left;
+            text-indent: 15px;
+            color: #555;
+            outline: none;
+            appearance: none;
+          }
+        }
+
+        .ps {
+          padding-top: 15px;
+          font-size: 12px;
+          color: #999;
+        }
+      }
+    }
+  }
+
+  .joinWrap {
+    padding-top: 30px;
+
+    .joinTerms {
+      h1 {
+        padding: 20px 0;
+        font-size: 16px;
+      }
+
+      .joinTermsContent {
+        padding: 20px 0;
+        background: #f7f7f7;
+        text-align: center;
+        color: #999;
+
+        p {
+          line-height: 1.8;
+          font-size: 100%;
+        }
+      }
+
+      .checkAllAgree {
+        width: 100%;
+        height: 40px;
+        margin: 15px 0;
+        background-color: white;
+        border: 1px solid #e5e5e5;
+        outline: none;
+
+        .checkIcon {
+          width: 13px;
+          height: 10px;
+          background: url("https://image.drjart.com/guide/mobile/ko/images/common/chk_off.jpg");
+          background-size: cover;
+          background-position: center center;
+          margin-right: 10px;
+          display: inline-block;
+        }
+      }
+
+      .activeBtn {
+        width: 100%;
+        height: 40px;
+        margin: 15px 0;
+        background-color: gray;
+        border: 1px solid #e5e5e5;
+        outline: none;
+        text-align: center;
+        color: white;
+
+        .checkIcon {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+
+  .checkbox {
+    color: #000;
+
+    .agreeService {
+      padding-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      div {
+        line-height: 20px;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+
+        .essentialTerm[type="checkbox"] {
+          display: none;
+        }
+
+        .essentialTerm[type="checkbox"] + label {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          margin-right: 6px;
+          border: 1px solid #e5e5e5;
+          cursor: pointer;
+        }
+
+        .essentialTerm[type="checkbox"]:checked + label {
+          background: url("https://image.drjart.com/guide/mobile/ko/images/common/chk_off.jpg");
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: 95%;
+        }
+
+        span {
+          font-size: 14px;
+          color: #555;
+        }
+      }
+
+      .agreementTerm {
+        font-size: 14px;
+
+        button {
+          background-color: transparent;
+          color: #555;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .btnWrap {
+    position: relative;
+    width: 100%;
+    margin: 50px auto;
+    padding-bottom: 120px;
+    border-color: black;
+
+    .btnUpper {
+      position: relative;
+
+      .blackBg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+      }
+
+      .whiteBg {
+        position: absolute;
+        background-color: white;
+        width: 0;
+        height: 50px;
+        z-index: 10;
+        transition: width 0.3s;
+
+        &.hover {
+          width: 100%;
+        }
+      }
+
+      .loginBtn {
+        position: relative;
+        background-color: transparent;
+        width: 100%;
+        height: 48px;
+        z-index: 11;
+        border: 1px solid #222222;
+        padding: 10px;
+        text-align: center;
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+
+        &.hover {
+          color: black;
+        }
+      }
+    }
+  }
+
+  .inputMail .selectbox {
+    float: left;
+    width: 34%;
+    margin-left: 1%;
+  }
+
+  .selectbox {
+    display: inline-block;
+    position: relative;
+    width: 240px;
+    height: 40px;
+    vertical-align: middle;
+    border: 1px solid #dcdcdc;
+
+    .title {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 38px;
+      line-height: 38px;
+      padding-right: 30px;
+      text-align: left;
+      text-indent: 15px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    button {
+      display: inline-block;
+      background: none;
+      outline: none;
+      font-family: "NotoL";
+      font-size: 14px;
+      letter-spacing: 0;
+      color: #555;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    .selList {
+      display: none;
+      position: absolute;
+      top: 39px;
+      left: -1px;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #555555;
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+  }
+}
