@@ -58,13 +58,15 @@ class SideNav extends React.Component {
             </ul>
           </div>
         </nav>
-        <nav className={navOn ? "hideNav" : "hideNavOff"}>
+        <nav className={navOn ? "hideNavOn" : "hideNavOff"}>
           <div className="hideNavWrap">
             <div className="logoWrap">
               <img alt="logo" src="/images/logo.png" />
             </div>
             <ul className="menuList">
-              <li>제품</li>
+              <Link to="/product/all">
+                <li>제품</li>
+              </Link>
               <li>이벤트</li>
               <li>스토리</li>
               <li>필터 스페이스</li>
@@ -72,11 +74,11 @@ class SideNav extends React.Component {
               <li className="jartvIcon">
                 <img alt="jartv" src="/images/jartv.png" />
               </li>
-              <li className="noticeList">
+              <div className="noticeList">
                 <p>멤버십</p>
                 <p>고객만족센터</p>
                 <p>매장안내</p>
-              </li>
+              </div>
             </ul>
             <div className="bottomList">
               <button className="mergeMem">통합회원전환</button>

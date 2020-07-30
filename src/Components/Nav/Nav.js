@@ -127,7 +127,7 @@ class Nav extends React.Component {
                       {list.menus.map((item) => {
                         return (
                           <Link to="/product/all">
-                            <p>{item}</p>
+                            <p className="selectMenu">{item}</p>
                           </Link>
                         );
                       })}

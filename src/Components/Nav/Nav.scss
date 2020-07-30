@@ -55,6 +55,16 @@
             font-size: 15px;
             text-align: center;
             animation: 0.4s ease 1 dropDown;
+
+            .selectMenu {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              &:hover {
+                color: #555;
+              }
+            }
           }
 
           @keyframes dropDown {
@@ -95,21 +105,6 @@
             background-color: white;
             position: absolute;
             top: 107px;
-
-            p {
-              display: flex;
-              &:hover {
-                color: #555;
-              }
-            }
-
-            .flesh {
-              color: #222;
-
-              &:hover {
-                color: #222;
-              }
-            }
           }
         }
 
@@ -124,6 +119,7 @@
             background-color: white;
             position: absolute;
             top: 107px;
+            text-align: center;
           }
         }
 
