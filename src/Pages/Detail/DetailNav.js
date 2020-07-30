@@ -135,48 +135,46 @@ class DetailNav extends React.Component {
                 <Link to="/buy">
                   <div className="buy">바로구매</div>
                 </Link>
-                <Link
-                  to="/wish"
-                  onMouseEnter={() => this.setState({ isWishBtnHovered: true })}
-                  onMouseLeave={() =>
-                    this.setState({ isWishBtnHovered: false })
-                  }
-                >
-                  <div
-                    className={
-                      isWishBtnHovered ? "icon wish white" : "icon wish"
-                    }
-                  >
-                    <img
-                      alt="wish"
-                      src={
-                        isWishBtnHovered
-                          ? "/images/btn_wish.png"
-                          : "/images/ico_heart_white.png"
+                <Link to="/wish">
+                  <div className="wishWrap">
+                    <div
+                      className="wishUpper"
+                      onMouseEnter={() =>
+                        this.setState({ isWishBtnHovered: true })
                       }
-                    />
+                      onMouseLeave={() =>
+                        this.setState({ isWishBtnHovered: false })
+                      }
+                    >
+                      <div className="blackBg" />
+                      <div
+                        className={`whiteBg ${isWishBtnHovered && "hover"}`}
+                      />
+                      <button
+                        className={`wishBtn ${isWishBtnHovered && "hover"}`}
+                      />
+                    </div>
                   </div>
                 </Link>
-                <Link
-                  to="/cart"
-                  onMouseEnter={() => this.setState({ isCartBtnHovered: true })}
-                  onMouseLeave={() =>
-                    this.setState({ isCartBtnHovered: false })
-                  }
-                >
-                  <div
-                    className={
-                      isCartBtnHovered ? "icon cart white" : "icon cart"
-                    }
-                  >
-                    <img
-                      alt="cart"
-                      src={
-                        isCartBtnHovered
-                          ? "/images/btn_cart.png"
-                          : "/images/ico_cart_white.png"
+                <Link to="/cart">
+                  <div className="cartWrap">
+                    <div
+                      className="cartUpper"
+                      onMouseEnter={() =>
+                        this.setState({ isCartBtnHovered: true })
                       }
-                    />
+                      onMouseLeave={() =>
+                        this.setState({ isCartBtnHovered: false })
+                      }
+                    >
+                      <div className="blackBg" />
+                      <div
+                        className={`whiteBg ${isCartBtnHovered && "hover"}`}
+                      />
+                      <button
+                        className={`cartBtn ${isCartBtnHovered && "hover"}`}
+                      />
+                    </div>
                   </div>
                 </Link>
               </div>
