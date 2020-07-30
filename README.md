@@ -26,8 +26,9 @@
 - React.js
 - React Router
 - RESTful API
-- Sass
+- Scss
 - Slick.js
+- Intersection Observer API
 
 ### 구현 기능
 
@@ -35,10 +36,11 @@
 - Navigation 기능 구현
 - React Router를 이용한 페이지 이동 기능 구현
 - `fetch API`를 통해 백엔드와 로그인 통신 구현
+- Image Lazy Loading 구현
 - Slick.js를 활용한 슬라이드 구현
 - 브라우저 Scroll 이벤트 구현
-- 제품 수량 증가/감소 기능 구현
-- 장바구니 기능 구현
+- 장바구니 제품 추가/삭제 및 수량 증가/감소 기능 구현
+- Social Login 기능 구현
 - Scss를 활용한 다양한 Transition 효과 구현
 
 ## 정리
