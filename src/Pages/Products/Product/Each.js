@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
+import API_URL from "../../../Config.js";
 import "./Each.scss";
 
 const options = { threshold: 0.5 };
@@ -24,6 +25,19 @@ class Each extends React.Component {
         observer.unobserve(entry.target);
         entry.target.src = entry.target.dataset.src;
       }
+    });
+  };
+
+  addCartlist = () => {
+    const { id } = this.props.data;
+    fetch(`${API_URL}/user/orderadd`, {
+      method: "POST",
+      body: JSON.stringify({
+        product_id: id,
+      }),
+      headers: {
+        Authorization: localStorage.getItem("Kakao_token"),
+      },
     });
   };
 
@@ -115,11 +129,9 @@ class Each extends React.Component {
               <Link to="/buy">
                 <div className="buy">바로구매</div>
               </Link>
-              <Link to="/cart">
-                <div className="icon cart">
-                  <img alt="cart" src="/images/btn_cart.png" />
-                </div>
-              </Link>
+              <div className="icon cart" onClick={this.addCartlist}>
+                <img alt="cart" src="/images/btn_cart.png" />
+              </div>
               <Link to="/wish">
                 <div className="icon wish">
                   <img alt="wish" src="/images/btn_wish.png" />

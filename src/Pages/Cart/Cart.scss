@@ -21,26 +21,40 @@
     margin: 0 auto;
     max-width: 980px;
     min-height: 643px;
+    padding-bottom: 120px;
 
     .cartList {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 660px;
-      height: 292px;
-      padding: 170px 0 100px;
-      margin-right: 35px;
       border-top: 1px solid #222;
-      border-bottom: 1px solid #eee;
-      background: url(https://image.drjart.com/front/ko/images/common/bg_noData.png)
-        no-repeat center 60px;
       font-size: 16px;
       color: #555;
-      text-align: center;
+
+      .cartCate {
+        height: 40px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          width: 25%;
+          height: 40px;
+          text-align: center;
+          line-height: 40px;
+          font-size: 13px;
+          font-weight: 600;
+          color: #222;
+
+          &:nth-child(1) {
+            width: 48%;
+          }
+        }
+      }
     }
 
     .continueShopping {
       display: flex;
+      justify-content: center;
       margin-top: 50px;
       margin-right: 35px;
 
