@@ -9,7 +9,6 @@ class SignUp extends React.Component {
     super();
     this.state = {
       isHoveredUpper: false,
-      isHoveredUpper2: false,
       userId: "",
       userPw: "",
       userCheckPw: "",
@@ -21,8 +20,9 @@ class SignUp extends React.Component {
   }
 
   inputValue = (e) => {
+    const { name, value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -54,20 +54,18 @@ class SignUp extends React.Component {
       userCheckPw.length < 10 &&
       userId.length >= 6
     ) {
-      fetch(`${API_URL}/signup`, fetchInfo)
-        .then(alert("회원가입이 완료되었습니다! 로그인을 진행해주세요."))
-        .then(this.props.history.push("/signin"));
+      alert("회원가입이 완료되었습니다! 로그인을 진행해주세요.");
+      fetch(`${API_URL}/signup`, fetchInfo).then(
+        this.props.history.push("/signin")
+      );
     } else {
       alert("회원정보가 입력되지 않았습니다.");
     }
   };
 
-  checkAvailable = () => {
-    alert("사용가능한 ID입니다.");
-  };
-
   render() {
     const {
+      isHoveredUpper,
       userId,
       userPw,
       userCheckPw,
@@ -76,13 +74,7 @@ class SignUp extends React.Component {
       agreeAll,
       mailOption,
     } = this.state;
-    const {
-      inputValue,
-      handleAllAgree,
-      handleSignUp,
-      handleOption,
-      checkAvailable,
-    } = this;
+    const { inputValue, handleAllAgree, handleSignUp, handleOption } = this;
 
     return (
       <>
@@ -107,32 +99,6 @@ class SignUp extends React.Component {
                   placeholder="사용하실 ID를 6자 이상으로 입력해주세요."
                   onChange={inputValue}
                 />
-                <div className="btnWrap2">
-                  <div
-                    className="btnUpper2"
-                    onMouseEnter={() =>
-                      this.setState({ isHoveredUpper2: true })
-                    }
-                    onMouseLeave={() =>
-                      this.setState({ isHoveredUpper2: false })
-                    }
-                  >
-                    <div className="blackBg2" />
-                    <div
-                      className={`whiteBg2 ${
-                        this.state.isHoveredUpper2 ? "hover" : ""
-                      }`}
-                    />
-                    <button
-                      className={`loginBtn2 ${
-                        this.state.isHoveredUpper2 ? "hover" : ""
-                      }`}
-                      onClick={checkAvailable}
-                    >
-                      중복확인
-                    </button>
-                  </div>
-                </div>
               </div>
               <p className={userId.length < 6 ? "error" : "errorOff"}>
                 ID를 6자이상 입력하세요.
@@ -163,9 +129,9 @@ class SignUp extends React.Component {
                 />
                 <p
                   className={
-                    userPw !== userCheckPw || userCheckPw === 0
-                      ? "error"
-                      : "errorOff"
+                    userPw === userCheckPw || userCheckPw.length !== 0
+                      ? "errorOff"
+                      : "error"
                   }
                 >
                   비밀번호를 재입력하세요.
@@ -323,15 +289,9 @@ class SignUp extends React.Component {
                     }
                   >
                     <div className="blackBg" />
-                    <div
-                      className={`whiteBg ${
-                        this.state.isHoveredUpper && "hover"
-                      }`}
-                    />
+                    <div className={`whiteBg ${isHoveredUpper && "hover"}`} />
                     <button
-                      className={`loginBtn ${
-                        this.state.isHoveredUpper && "hover"
-                      }`}
+                      className={`loginBtn ${isHoveredUpper && "hover"}`}
                       onClick={handleSignUp}
                     >
                       <span>본인 인증하고 가입하기</span>

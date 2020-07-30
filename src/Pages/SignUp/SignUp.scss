@@ -52,7 +52,7 @@
         justify-content: space-between;
 
         .inputId {
-          width: 80%;
+          width: 100%;
           height: 40px;
           padding: 0 16px;
           background: #fff;
@@ -61,61 +61,9 @@
           color: #111;
           outline: none;
         }
-
-        .btnWrap2 {
-          position: relative;
-          width: 19%;
-          height: 130px;
-          border-radius: 1px;
-          border-color: white;
-
-          .btnUpper2 {
-            border-radius: 5px;
-            position: relative;
-
-            .blackBg2 {
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              background-color: white;
-            }
-
-            .whiteBg2 {
-              position: absolute;
-              background-color: grey;
-              width: 0;
-              height: 100%;
-              z-index: 10;
-              transition: width 0.3s;
-
-              &.hover {
-                width: 100%;
-              }
-            }
-
-            .loginBtn2 {
-              position: relative;
-              background-color: transparent;
-              padding: 10px;
-              width: 100%;
-              z-index: 11;
-              border: 1px solid #e5e5e5;
-              color: black;
-              border-radius: 0px;
-              cursor: pointer;
-              outline: none;
-
-              &.hover {
-                color: white;
-              }
-            }
-          }
-        }
       }
 
       .memberInfo {
-        width: 100%;
-
         .inputStyle {
           width: 100%;
           height: 40px;
@@ -173,6 +121,7 @@
           margin-left: 8px;
           margin-bottom: 8px;
         }
+
         .errorOff {
           display: none;
         }
@@ -253,7 +202,7 @@
         width: 100%;
         height: 40px;
         margin: 15px 0;
-        background-color: gray;
+        background-color: #808080;
         border: 1px solid #e5e5e5;
         outline: none;
         text-align: center;
@@ -372,14 +321,13 @@
   }
 
   .inputMail .selectbox {
-    float: left;
+    float: flex;
     width: 34%;
     margin-left: 1%;
   }
 
   .selectbox {
     display: inline-block;
-    position: relative;
     width: 240px;
     height: 40px;
     vertical-align: middle;
@@ -408,18 +356,6 @@
       color: #555;
       vertical-align: middle;
       cursor: pointer;
-    }
-
-    .selList {
-      display: none;
-      position: absolute;
-      top: 39px;
-      left: -1px;
-      width: 100%;
-      background: #fff;
-      border: 1px solid #555555;
-      opacity: 0;
-      filter: alpha(opacity=0);
     }
   }
 }
