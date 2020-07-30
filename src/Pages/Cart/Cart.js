@@ -4,7 +4,16 @@ import Footer from "../../Components/Footer/Footer.js";
 import "./Cart.scss";
 
 class Cart extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      cost: 18000,
+    };
+  }
+
   render() {
+    const { cost } = this.state;
+
     return (
       <>
         <SideNav />
@@ -31,30 +40,24 @@ class Cart extends React.Component {
                   </div>
                   <div className="countItem">
                     <div className="quantity">
-                      <button
-                        className="minus"
-                        onClick={() => this.handleCount(-1)}
-                      >
+                      <button className="minus">
                         <img
-                          alt=""
+                          alt="minusIcon"
                           src="https://image.drjart.com/front/ko/images/common/qty_down.gif"
                         />
                       </button>
                       <input className="count" type="text" value="1" readOnly />
-                      <button
-                        className="plus"
-                        onClick={() => this.handleCount(1)}
-                      >
+                      <button className="plus">
                         <img
-                          alt=""
+                          alt="plusIcon"
                           src="https://image.drjart.com/front/ko/images/common/qty_up.gif"
                         />
                       </button>
                     </div>
                   </div>
                   <div className="itemCost">
-                    <p className="price">18000원</p>
-                    <button className="delItem"></button>
+                    <p className="price">{cost.toLocaleString()}원</p>
+                    <button className="delItem" />
                   </div>
                 </div>
               </div>
