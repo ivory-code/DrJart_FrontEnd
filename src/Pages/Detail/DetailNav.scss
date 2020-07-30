@@ -260,23 +260,119 @@
           }
         }
 
-        .icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        .wishWrap {
+          position: relative;
           min-width: 65px;
-          height: 48px;
-          background: #222;
 
-          &.white {
-            background-color: #fff;
-            border: 1px solid black;
+          .wishUpper {
+            .blackBg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 65px;
+              height: 46px;
+              border: 1px solid black;
+              background-color: black;
+              background-image: url(/images/ico_heart_white.png);
+              background-repeat: no-repeat;
+              background-position: center center;
+            }
+
+            .whiteBg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0%;
+              height: 46px;
+              background-color: white;
+              background-image: url(/images/btn_wish.png);
+              background-repeat: no-repeat;
+              background-position: center center;
+              z-index: 10;
+              transition: width 0.1s ease-in;
+
+              &.hover {
+                width: 100%;
+              }
+            }
+
+            .wishBtn {
+              position: relative;
+              background-color: transparent;
+              width: 65px;
+              height: 46px;
+              z-index: 11;
+              border: 1px solid #222222;
+              padding: 10px;
+              text-align: center;
+              line-height: 24px;
+              font-size: 16px;
+              font-weight: 600;
+              color: #fff;
+
+              &.hover {
+                color: black;
+              }
+            }
           }
         }
 
-        .cart {
+        .cartWrap {
+          position: relative;
+          min-width: 65px;
           margin-left: 5px;
-          border-right: 1px solid black;
+
+          .cartUpper {
+            .blackBg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 65px;
+              height: 46px;
+              border: 1px solid black;
+              background-color: black;
+              background-image: url(/images/ico_cart_white.png);
+              background-repeat: no-repeat;
+              background-position: center center;
+            }
+
+            .whiteBg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0%;
+              height: 46px;
+              background-color: white;
+              background-image: url(/images/btn_cart.png);
+              background-repeat: no-repeat;
+              background-position: center center;
+              z-index: 10;
+              transition: width 0.1s ease-in;
+
+              &.hover {
+                width: 100%;
+              }
+            }
+
+            .cartBtn {
+              position: relative;
+              background-color: transparent;
+              width: 65px;
+              height: 46px;
+              z-index: 11;
+              border: 1px solid #222222;
+              padding: 10px;
+              text-align: center;
+              line-height: 24px;
+              font-size: 16px;
+              font-weight: 600;
+              color: #fff;
+
+              &.hover {
+                color: black;
+              }
+            }
+          }
         }
 
         a {
