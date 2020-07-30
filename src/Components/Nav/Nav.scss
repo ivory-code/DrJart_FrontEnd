@@ -54,10 +54,7 @@
           div {
             font-size: 15px;
             text-align: center;
-            animation: dropDown;
-            animation-duration: 0.4s;
-            animation-iteration-count: initial;
-            animation-timing-function: ease;
+            animation: 0.4s ease 1 dropDown;
           }
 
           @keyframes dropDown {
@@ -100,6 +97,7 @@
             top: 107px;
 
             p {
+              display: flex;
               &:hover {
                 color: #555;
               }
