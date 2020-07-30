@@ -1,0 +1,144 @@
+.cartItem {
+  width: 100%;
+  height: 140px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .itemInfo {
+    width: 48%;
+    padding: 0 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .itemImgBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 140px;
+      height: 140px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    p {
+      width: 160px;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 400;
+      color: #555;
+    }
+  }
+
+  .countItem {
+    width: 25%;
+    height: 140px;
+
+    .quantity {
+      width: 130px;
+      height: 40px;
+      border: 1px solid #dcdcdc;
+      vertical-align: top;
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+
+      button {
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        cursor: pointer;
+
+        &:hover {
+          background: #eee;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      input {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+        text-align: center;
+        color: #555;
+        background: transparent;
+
+        &:focus {
+          outline: transparent;
+        }
+      }
+    }
+  }
+
+  .itemCost {
+    width: 25%;
+    height: 140px;
+    display: flex;
+    justify-content: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+
+    .itemprice {
+      padding: 10px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
+      color: #555;
+      display: none;
+
+      &.off {
+        display: none;
+      }
+    }
+
+    .saleItemPrice {
+      padding: 10px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
+      color: #555;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+
+      .oriCost {
+        margin-bottom: 1px;
+        font-size: 13px;
+        color: #999;
+        text-decoration: line-through;
+
+        &.off {
+          display: none;
+        }
+      }
+
+      &.off {
+        display: none;
+      }
+    }
+
+    .delItem {
+      width: 16px;
+      height: 16px;
+      background: url("/images/delBtn.png") no-repeat center center;
+      padding: 25px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,19 +1,74 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SideNav from "../../Components/Nav/SideNav/SideNav.js";
 import Footer from "../../Components/Footer/Footer.js";
+import Cartlist from "./Cartlist.js";
+import API_URL from "../../Config.js";
 import "./Cart.scss";
 
 class Cart extends React.Component {
   constructor() {
     super();
     this.state = {
-      cost: 18000,
+      count: 1,
+      cartlist: [],
+      reload: false,
     };
   }
 
-  render() {
-    const { cost } = this.state;
+  componentDidMount() {
+    fetch(`${API_URL}/user/order`, {
+      method: "POST",
+      headers: {
+        Authorization: localStorage.getItem("Kakao_token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({
+          cartlist: res.data,
+        })
+      );
+  }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.reload !== this.state.reload) {
+      window.location.reload();
+    }
+  }
+
+  getAllprice = () => {
+    const { cartlist } = this.state;
+    let sum = 0;
+    cartlist.forEach((el) => {
+      sum += el.price;
+    });
+    return sum;
+  };
+
+  getAllsalePrice = () => {
+    const { cartlist } = this.state;
+    let priceSum = 0;
+    let salepriceSum = 0;
+
+    cartlist.forEach((el) => {
+      if (el.price_sale) {
+        priceSum += el.price;
+        salepriceSum += el.price_sale;
+      }
+    });
+    return priceSum - salepriceSum;
+  };
+
+  setReload = () => {
+    const { reload } = this.state;
+    this.setState({
+      reload: !reload,
+    });
+  };
+
+  render() {
+    const { count, cartlist } = this.state;
     return (
       <>
         <SideNav />
@@ -33,36 +88,23 @@ class Cart extends React.Component {
                   <p>수량</p>
                   <p>가격</p>
                 </div>
-                <div className="cartItem">
-                  <div className="itemInfo">
-                    <img alt="cartItem" src="images/detail01.png" />
-                    <p>2세대 시카페어 크림</p>
-                  </div>
-                  <div className="countItem">
-                    <div className="quantity">
-                      <button className="minus">
-                        <img
-                          alt="minusIcon"
-                          src="https://image.drjart.com/front/ko/images/common/qty_down.gif"
-                        />
-                      </button>
-                      <input className="count" type="text" value="1" readOnly />
-                      <button className="plus">
-                        <img
-                          alt="plusIcon"
-                          src="https://image.drjart.com/front/ko/images/common/qty_up.gif"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                  <div className="itemCost">
-                    <p className="price">{cost.toLocaleString()}원</p>
-                    <button className="delItem" />
-                  </div>
-                </div>
+                {cartlist.map((el, i) => {
+                  return (
+                    <Cartlist
+                      key={i}
+                      productId={el.id}
+                      data={el}
+                      count={count}
+                      cartlist={cartlist}
+                      setReload={this.setReload}
+                    />
+                  );
+                })}
               </div>
               <div className="continueShopping">
-                <button>쇼핑 계속하기</button>
+                <Link to="/main">
+                  <button>쇼핑 계속하기</button>
+                </Link>
               </div>
               <div className="noti">
                 <dl>
@@ -86,17 +128,25 @@ class Cart extends React.Component {
               <div className="totalPrice">
                 <div className="price pdtPrice">
                   총 상품 금액
-                  <div className="pdtPrice pdtPriceNum">0</div>
+                  <div className="pdtPrice pdtPriceNum">
+                    {this.getAllprice().toLocaleString()}
+                  </div>
                 </div>
                 <div className="price discount">
                   총 할인 금액
-                  <div className="pdtPrice discountNum">0</div>
+                  <div className="pdtPrice discountNum">
+                    {this.getAllsalePrice().toLocaleString()}
+                  </div>
                 </div>
               </div>
               <div className="totalPrice">
                 <div className="price expectPrice">
                   예상 결제 금액
-                  <div className="pdtPrice expectNum">0</div>
+                  <div className="pdtPrice expectNum">
+                    {(
+                      this.getAllprice() - this.getAllsalePrice()
+                    ).toLocaleString()}
+                  </div>
                 </div>
               </div>
               <div className="order">
