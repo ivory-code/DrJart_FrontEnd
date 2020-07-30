@@ -53,7 +53,7 @@ class Login extends React.Component {
   };
 
   responseKakao = (res) => {
-    fetch("http://10.58.7.66:8000/user/signin/kakao/callback", {
+    fetch(`${API_URL}/user/signin/kakao/callback`, {
       method: "POST",
       body: JSON.stringify({
         access_token: res.response.access_token,
@@ -69,7 +69,7 @@ class Login extends React.Component {
   };
 
   responseGoogle = (res) => {
-    fetch("http://10.58.7.66:8000/user/signin/google", {
+    fetch(`${API_URL}/user/signin/google`, {
       method: "POST",
       body: JSON.stringify({
         user: res.profileObj.email,

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SideNav from "../../Components/Nav/SideNav/SideNav.js";
 import Footer from "../../Components/Footer/Footer.js";
 import Cartlist from "./Cartlist.js";
+import API_URL from "../../Config.js";
 import "./Cart.scss";
 
 class Cart extends React.Component {
@@ -16,7 +17,7 @@ class Cart extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.7.66:8000/user/order", {
+    fetch(`${API_URL}/user/order`, {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("Kakao_token"),

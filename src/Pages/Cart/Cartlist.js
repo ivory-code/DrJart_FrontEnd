@@ -12,27 +12,8 @@ class Cartlist extends React.Component {
     };
   }
 
-  handlePlus = (productNum) => {
-    fetch(`${API_URL}/user/orderadd`, {
-      method: "POST",
-      body: JSON.stringify({ product_id: productNum }),
-      headers: {
-        Authorization: localStorage.getItem("Kakao_token"),
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          count: res.quantity,
-          price: res.price,
-          salePrice: res.price_sale,
-        });
-        this.props.setReload();
-      });
-  };
-
-  handleMinus = (productNum) => {
-    fetch(`${API_URL}/user/orderminus`, {
+  handleCount = (productNum, sign) => {
+    fetch(`${API_URL}/user/order${sign === "+" ? "add" : "minus"}`, {
       method: "POST",
       body: JSON.stringify({ product_id: productNum }),
       headers: {
@@ -79,7 +60,7 @@ class Cartlist extends React.Component {
           <div className="quantity">
             <button
               className="minus"
-              onClick={() => this.handleMinus(productId)}
+              onClick={() => this.handleCount(productId, "-")}
             >
               <img
                 alt=""
@@ -87,7 +68,10 @@ class Cartlist extends React.Component {
               />
             </button>
             <input className="count" type="text" value={count} readOnly />
-            <button className="plus" onClick={() => this.handlePlus(productId)}>
+            <button
+              className="plus"
+              onClick={() => this.handleCount(productId, "+")}
+            >
               <img
                 alt=""
                 src="https://image.drjart.com/front/ko/images/common/qty_up.gif"
