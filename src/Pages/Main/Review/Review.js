@@ -52,13 +52,6 @@ class Review extends React.Component {
                     <span>2020.07.21</span>
                   </p>
                 </div>
-                <div className="reviewItem">
-                  <img
-                    alt="reviewItem01"
-                    src={data.length && data[i].main_image_url}
-                  />
-                  <p className="itemName">{el.skintype__name}</p>
-                </div>
               </div>
             );
           })}

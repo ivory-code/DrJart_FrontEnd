@@ -14,6 +14,7 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
+      isHoveredUpper: false,
       maindata: [],
     };
   }
@@ -45,7 +46,7 @@ class Main extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
     };
-    const { maindata } = this.state;
+    const { maindata, isHoveredUpper } = this.state;
 
     return (
       <div className="Main">
@@ -66,7 +67,23 @@ class Main extends React.Component {
                   <p>여름철 무더위에 지친 피부를 위한</p>
                   <p>공홈만의 특별한 수분 3종 혜택 받으세요</p>
                 </li>
-                <button className="detailBtn">자세히 보기</button>
+                <div className="btnWrap">
+                  <div
+                    className="btnUpper"
+                    onMouseEnter={() => this.setState({ isHoveredUpper: true })}
+                    onMouseLeave={() =>
+                      this.setState({ isHoveredUpper: false })
+                    }
+                  >
+                    <div className="blackBg" />
+                    <div className={`whiteBg ${isHoveredUpper && "hover"}`} />
+                    <button
+                      className={`detailBtn ${isHoveredUpper && "hover"}`}
+                    >
+                      <span>자세히 보기</span>
+                    </button>
+                  </div>
+                </div>
               </ul>
             </div>
             <div className="slideImg">
@@ -83,7 +100,23 @@ class Main extends React.Component {
                   <p>밤 사이 지친 피부를 관리하는 #딥슬립크림팩</p>
                   <p>나이트 테라피 마스크를 만나보세요.</p>
                 </li>
-                <button className="detailBtn">자세히 보기</button>
+                <div className="btnWrap">
+                  <div
+                    className="btnUpper"
+                    onMouseEnter={() => this.setState({ isHoveredUpper: true })}
+                    onMouseLeave={() =>
+                      this.setState({ isHoveredUpper: false })
+                    }
+                  >
+                    <div className="blackBg" />
+                    <div className={`whiteBg ${isHoveredUpper && "hover"}`} />
+                    <button
+                      className={`detailBtn ${isHoveredUpper && "hover"}`}
+                    >
+                      <span>자세히 보기</span>
+                    </button>
+                  </div>
+                </div>
               </ul>
             </div>
             <div className="slideImg">
@@ -100,7 +133,23 @@ class Main extends React.Component {
                   <p>닥터자르트 공홈에서 첫 구매하고</p>
                   <p>베스트 제품을 체험해보세요!!</p>
                 </li>
-                <button className="detailBtn">자세히 보기</button>
+                <div className="btnWrap">
+                  <div
+                    className="btnUpper"
+                    onMouseEnter={() => this.setState({ isHoveredUpper: true })}
+                    onMouseLeave={() =>
+                      this.setState({ isHoveredUpper: false })
+                    }
+                  >
+                    <div className="blackBg" />
+                    <div className={`whiteBg ${isHoveredUpper && "hover"}`} />
+                    <button
+                      className={`detailBtn ${isHoveredUpper && "hover"}`}
+                    >
+                      <span>자세히 보기</span>
+                    </button>
+                  </div>
+                </div>
               </ul>
             </div>
             <div className="slideImg">
@@ -117,7 +166,23 @@ class Main extends React.Component {
                   <p>수분 바이옴과 함께하는 셀프 홈케어로</p>
                   <p>민감함은 지우고 촉촉한 피부로 가꿔보세요!</p>
                 </li>
-                <button className="detailBtn">자세히 보기</button>
+                <div className="btnWrap">
+                  <div
+                    className="btnUpper"
+                    onMouseEnter={() => this.setState({ isHoveredUpper: true })}
+                    onMouseLeave={() =>
+                      this.setState({ isHoveredUpper: false })
+                    }
+                  >
+                    <div className="blackBg" />
+                    <div className={`whiteBg ${isHoveredUpper && "hover"}`} />
+                    <button
+                      className={`detailBtn ${isHoveredUpper && "hover"}`}
+                    >
+                      <span>자세히 보기</span>
+                    </button>
+                  </div>
+                </div>
               </ul>
             </div>
           </Slider>
@@ -147,7 +212,23 @@ class Main extends React.Component {
                     닥터자르트 멤버십만 받을 수 있는 특별 구매 금액대별 사은품
                   </p>
                 </li>
-                <button className="detailBtn">자세히 보기</button>
+                <div className="btnWrap">
+                  <div
+                    className="btnUpper"
+                    onMouseEnter={() => this.setState({ isHoveredUpper: true })}
+                    onMouseLeave={() =>
+                      this.setState({ isHoveredUpper: false })
+                    }
+                  >
+                    <div className="blackBg" />
+                    <div className={`whiteBg ${isHoveredUpper && "hover"}`} />
+                    <button
+                      className={`detailBtn ${isHoveredUpper && "hover"}`}
+                    >
+                      <span>자세히 보기</span>
+                    </button>
+                  </div>
+                </div>
               </ul>
             </div>
             <div className="slideImg">
@@ -166,7 +247,23 @@ class Main extends React.Component {
                     드립니다.
                   </p>
                 </li>
-                <button className="detailBtn">자세히 보기</button>
+                <div className="btnWrap">
+                  <div
+                    className="btnUpper"
+                    onMouseEnter={() => this.setState({ isHoveredUpper: true })}
+                    onMouseLeave={() =>
+                      this.setState({ isHoveredUpper: false })
+                    }
+                  >
+                    <div className="blackBg" />
+                    <div className={`whiteBg ${isHoveredUpper && "hover"}`} />
+                    <button
+                      className={`detailBtn ${isHoveredUpper && "hover"}`}
+                    >
+                      <span>자세히 보기</span>
+                    </button>
+                  </div>
+                </div>
               </ul>
             </div>
           </Slider>
