@@ -129,6 +129,7 @@
         min-width: 46px;
         height: 38px;
         background: #222;
+        transition: background-color 0.2s ease-in-out;
 
         &.white {
           background-color: #fff;
