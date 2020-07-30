@@ -31,16 +31,16 @@ class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { userId, userPw } = this.state;
-    fetch(`${API_URL}/signin`, {
+    fetch(`${API_URL}/user/signin`, {
       method: "POST",
       body: JSON.stringify({
-        userid: userId,
+        user: userId,
         password: userPw,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
-        localStorage.setItem("Authorization", res.access_token);
+        localStorage.setItem("access_token", res.access_token);
         if (res.access_token) {
           this.props.history.push("/main");
         } else {
@@ -53,7 +53,7 @@ class Login extends React.Component {
   };
 
   responseKakao = (res) => {
-    fetch("http://10.58.6.110:8000/user/signin/kakao/callback", {
+    fetch(`${API_URL}/user/signin/kakao/callback`, {
       method: "POST",
       body: JSON.stringify({
         access_token: res.response.access_token,
@@ -61,7 +61,6 @@ class Login extends React.Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         localStorage.setItem("Kakao_token", res.access_token);
         if (res.access_token) {
           this.props.history.push("/main");
@@ -70,10 +69,10 @@ class Login extends React.Component {
   };
 
   responseGoogle = (res) => {
-    fetch("http://10.58.1.198:8000/signin/google", {
+    fetch(`${API_URL}/user/signin/google`, {
       method: "POST",
       body: JSON.stringify({
-        userid: res.profileObj.email,
+        user: res.profileObj.email,
         name: res.profileObj.name,
       }),
     })

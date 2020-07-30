@@ -28,7 +28,6 @@ class Review extends React.Component {
 
   render() {
     const { review } = this.state;
-    const { data } = this.props;
 
     return (
       <div className="Review">
