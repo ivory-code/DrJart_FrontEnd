@@ -40,7 +40,7 @@ class Product extends React.Component {
     const priceObj = {
       "낮은 금액 순": "product_detail__price",
       "높은 금액 순": "product_detail__price",
-      "인기 순": "star__star_5",
+      "인기 순": "star_average",
       "신상품 순": "created",
     };
     let newData = productDatas.sort((a, b) => {

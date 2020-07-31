@@ -124,9 +124,9 @@ class Nav extends React.Component {
                         currentIndex === i + 1 ? list.switch : "offCate"
                       }
                     >
-                      {list.menus.map((item) => {
+                      {list.menus.map((item, j) => {
                         return (
-                          <Link to="/product/all">
+                          <Link to="/product/all" key={j}>
                             <p className="selectMenu">{item}</p>
                           </Link>
                         );
